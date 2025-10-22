@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - HIVeCare</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <meta name="description" content="Register to create your HIVeCare profile and access services." />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-heartbeat"></i> HIVeCare</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button class="auth-btn login-btn">Login</button>
+        <button class="auth-btn register-btn">Register</button>
+      </div>
+      <div class="language-switcher">
+        <select id="language-select">
+          <option value="en" selected>English</option>
+          <option value="si">සිංහල (Sinhala)</option>
+        </select>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="form-page">
+    <div class="container">
+      <!-- Role Selection Section -->
+      <div id="role-selection" class="form-card">
+        <div class="role-selection-header">
+          <h1><i class="fas fa-user-md"></i> Choose Your Role</h1>
+          <p>Please select your role to continue with the registration process</p>
+        </div>
+
+        <div class="role-bars">
+          <div class="role-bar" data-role="patient">
+            <input type="radio" id="patient" name="user-role" value="patient" required>
+            <label for="patient">
+              <div class="role-info">
+                <div class="role-icon">
+                  <i class="fas fa-user"></i>
+                </div>
+                <div class="role-text">
+                  <h3>Patient</h3>
+                  <p>Access HIV testing, counseling, and medical support services</p>
+                </div>
+              </div>
+              <div class="role-arrow">
+                <i class="fas fa-chevron-right"></i>
+              </div>
+            </label>
+          </div>
+
+          <div class="role-bar" data-role="doctor">
+            <input type="radio" id="doctor" name="user-role" value="doctor" required>
+            <label for="doctor">
+              <div class="role-info">
+                <div class="role-icon">
+                  <i class="fas fa-stethoscope"></i>
+                </div>
+                <div class="role-text">
+                  <h3>Doctor</h3>
+                  <p>Provide medical care and treatment for HIV patients</p>
+                </div>
+              </div>
+              <div class="role-arrow">
+                <i class="fas fa-chevron-right"></i>
+              </div>
+            </label>
+          </div>
+
+          <div class="role-bar" data-role="counsellor">
+            <input type="radio" id="counsellor" name="user-role" value="counsellor" required>
+            <label for="counsellor">
+              <div class="role-info">
+                <div class="role-icon">
+                  <i class="fas fa-comments"></i>
+                </div>
+                <div class="role-text">
+                  <h3>Counsellor</h3>
+                  <p>Offer psychological support and guidance to patients</p>
+                </div>
+              </div>
+              <div class="role-arrow">
+                <i class="fas fa-chevron-right"></i>
+              </div>
+            </label>
+          </div>
+
+          <div class="role-bar" data-role="lab-technician">
+            <input type="radio" id="lab-technician" name="user-role" value="lab-technician" required>
+            <label for="lab-technician">
+              <div class="role-info">
+                <div class="role-icon">
+                  <i class="fas fa-flask"></i>
+                </div>
+                <div class="role-text">
+                  <h3>Lab Technician</h3>
+                  <p>Process and analyze medical tests and samples</p>
+                </div>
+              </div>
+              <div class="role-arrow">
+                <i class="fas fa-chevron-right"></i>
+              </div>
+            </label>
+          </div>
+
+          <div class="role-bar" data-role="ngo-admin">
+            <input type="radio" id="ngo-admin" name="user-role" value="ngo-admin" required>
+            <label for="ngo-admin">
+              <div class="role-info">
+                <div class="role-icon">
+                  <i class="fas fa-handshake"></i>
+                </div>
+                <div class="role-text">
+                  <h3>NGO Admin</h3>
+                  <p>Manage NGO operations and patient support programs</p>
+                </div>
+              </div>
+              <div class="role-arrow">
+                <i class="fas fa-chevron-right"></i>
+              </div>
+            </label>
+          </div>
+
+          <div class="role-bar" data-role="hospital-admin">
+            <input type="radio" id="hospital-admin" name="user-role" value="hospital-admin" required>
+            <label for="hospital-admin">
+              <div class="role-info">
+                <div class="role-icon">
+                  <i class="fas fa-hospital"></i>
+                </div>
+                <div class="role-text">
+                  <h3>Hospital Admin</h3>
+                  <p>Oversee hospital administration and patient management</p>
+                </div>
+              </div>
+              <div class="role-arrow">
+                <i class="fas fa-chevron-right"></i>
+              </div>
+            </label>
+          </div>
+
+          <div class="role-bar" data-role="system-admin">
+            <input type="radio" id="system-admin" name="user-role" value="system-admin" required>
+            <label for="system-admin">
+              <div class="role-info">
+                <div class="role-icon">
+                  <i class="fas fa-cog"></i>
+                </div>
+                <div class="role-text">
+                  <h3>System Admin</h3>
+                  <p>Manage system-wide settings and user administration</p>
+                </div>
+              </div>
+              <div class="role-arrow">
+                <i class="fas fa-chevron-right"></i>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Registration Form Section (shown after role selection) -->
+      <form id="register-form" class="form-card" novalidate style="display: none;">
+        <h1>Create your account</h1>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="first-initial">First letter of your first name <span style="color:#e74c3c">*</span></label>
+            <input id="first-initial" name="first-initial" type="text" maxlength="1" required placeholder="E.g., A" />
+          </div>
+          <div class="form-group">
+            <label for="last-initial">First letter of your last name <span style="color:#e74c3c">*</span></label>
+            <input id="last-initial" name="last-initial" type="text" maxlength="1" required placeholder="E.g., B" />
+          </div>
+
+          <div class="form-group">
+            <label for="phone1">Primary phone number <span style="color:#e74c3c">*</span></label>
+            <input id="phone1" name="phone1" type="tel" required placeholder="07x-xxxxxxx" />
+          </div>
+          <div class="form-group">
+            <label for="phone2">Secondary phone number (optional)</label>
+            <input id="phone2" name="phone2" type="tel" placeholder="07x-xxxxxxx" />
+          </div>
+
+          <div class="form-group">
+            <label for="patient-password">Password <span style="color:#e74c3c">*</span></label>
+            <input id="patient-password" name="password" type="password" required placeholder="Create a password (min 8 characters)" minlength="8" />
+            <small style="color: #666;">Minimum 8 characters with uppercase, lowercase, and numbers</small>
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label for="district">District (Sri Lanka) <span style="color:#e74c3c">*</span></label>
+            <select id="district" name="district" required>
+              <option value="">Select your district</option>
+              <option>Colombo</option>
+              <option>Gampaha</option>
+              <option>Kalutara</option>
+              <option>Kandy</option>
+              <option>Matale</option>
+              <option>Nuwara Eliya</option>
+              <option>Galle</option>
+              <option>Matara</option>
+              <option>Hambantota</option>
+              <option>Jaffna</option>
+              <option>Killinochchi</option>
+              <option>Mannar</option>
+              <option>Vavuniya</option>
+              <option>Mullaitivu</option>
+              <option>Batticaloa</option>
+              <option>Ampara</option>
+              <option>Trincomalee</option>
+              <option>Kurunegala</option>
+              <option>Puttalam</option>
+              <option>Anuradhapura</option>
+              <option>Polonnaruwa</option>
+              <option>Badulla</option>
+              <option>Monaragala</option>
+              <option>Ratnapura</option>
+              <option>Kegalle</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-actions" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.1);">
+          <button type="button" id="register-back" class="btn btn-secondary-outline">Back</button>
+          <button type="submit" class="btn btn-secondary">Next</button>
+        </div>
+      </form>
+
+      <!-- Lab Technician Registration Popup -->
+      <div id="lab-tech-popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+          <div class="popup-header">
+            <h2><i class="fas fa-flask"></i> Lab Technician Portal</h2>
+            <p>Welcome! Please choose how you'd like to proceed</p>
+            <button class="popup-close" id="popup-close">&times;</button>
+          </div>
+          <div class="popup-body">
+            <div class="access-options">
+              <div class="option-card new-user">
+                <div class="option-icon">
+                  <i class="fas fa-user-plus"></i>
+                </div>
+                <h3>New Registration</h3>
+                <p>First time here? Create your Lab Technician account</p>
+                <button class="btn btn-primary" id="lab-tech-register">Get Started</button>
+              </div>
+
+              <div class="option-card existing-user">
+                <div class="option-icon">
+                  <i class="fas fa-sign-in-alt"></i>
+                </div>
+                <h3>Already Registered</h3>
+                <p>Have an existing account? Sign in to continue</p>
+                <button class="btn btn-outline" id="lab-tech-login">Sign In</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lab Technician Multi-Step Registration Forms -->
+      <div id="lab-tech-registration" class="form-card" style="display: none;">
+        <!-- Step 1: Personal Details -->
+        <div id="step1-personal" class="registration-step active">
+          <div class="step-header">
+            <h2><i class="fas fa-user"></i> Personal Details</h2>
+            <p>Step 1 of 4</p>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="full-name">Full Name <span style="color:#e74c3c">*</span></label>
+              <input id="full-name" name="full-name" type="text" required placeholder="Enter your full name" />
+            </div>
+
+            <div class="form-group">
+              <label for="gender">Gender <span style="color:#e74c3c">*</span></label>
+              <select id="gender" name="gender" required>
+                <option value="">Select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="dob">Date of Birth <span style="color:#e74c3c">*</span></label>
+              <input id="dob" name="dob" type="date" required />
+            </div>
+
+            <div class="form-group">
+              <label for="nic">NIC Number <span style="color:#e74c3c">*</span></label>
+              <input id="nic" name="nic" type="text" required placeholder="Enter your NIC number" />
+            </div>
+
+            <div class="form-group">
+              <label for="primary-contact">Primary Contact Number <span style="color:#e74c3c">*</span></label>
+              <input id="primary-contact" name="primary-contact" type="tel" required placeholder="07x-xxxxxxx" />
+            </div>
+
+            <div class="form-group">
+              <label for="secondary-contact">Secondary Contact Number</label>
+              <input id="secondary-contact" name="secondary-contact" type="tel" placeholder="07x-xxxxxxx" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address <span style="color:#e74c3c">*</span></label>
+              <input id="email" name="email" type="email" required placeholder="your.email@example.com" />
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label for="address">Address <span style="color:#e74c3c">*</span></label>
+              <textarea id="address" name="address" rows="3" required placeholder="Enter your full address"></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary-outline" id="personal-back">Back</button>
+            <button type="button" class="btn btn-secondary" id="personal-next">Next</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Professional Details -->
+        <div id="step2-professional" class="registration-step">
+          <div class="step-header">
+            <h2><i class="fas fa-hospital"></i> Professional Details</h2>
+            <p>Step 2 of 4</p>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="current-hospital">Current Hospital/Institution <span style="color:#e74c3c">*</span></label>
+              <input id="current-hospital" name="current-hospital" type="text" required placeholder="Enter hospital/institution name" />
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label for="hospital-address">Hospital Address <span style="color:#e74c3c">*</span></label>
+              <textarea id="hospital-address" name="hospital-address" rows="3" required placeholder="Enter complete hospital address"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="department">Department <span style="color:#e74c3c">*</span></label>
+              <select id="department" name="department" required>
+                <option value="">Select department</option>
+                <option value="pathology">Pathology</option>
+                <option value="microbiology">Microbiology</option>
+                <option value="biochemistry">Biochemistry</option>
+                <option value="hematology">Hematology</option>
+                <option value="immunology">Immunology</option>
+                <option value="virology">Virology</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="designation">Designation <span style="color:#e74c3c">*</span></label>
+              <input id="designation" name="designation" type="text" required placeholder="e.g., Senior Lab Technician" />
+            </div>
+
+            <div class="form-group">
+              <label for="employee-id">Employee ID <span style="color:#e74c3c">*</span></label>
+              <input id="employee-id" name="employee-id" type="text" required placeholder="Enter your employee ID" />
+            </div>
+
+            <div class="form-group">
+              <label for="years-experience">Years of Experience <span style="color:#e74c3c">*</span></label>
+              <select id="years-experience" name="years-experience" required>
+                <option value="">Select experience</option>
+                <option value="0-2">0-2 years</option>
+                <option value="3-5">3-5 years</option>
+                <option value="6-10">6-10 years</option>
+                <option value="11-15">11-15 years</option>
+                <option value="16-20">16-20 years</option>
+                <option value="20+">20+ years</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label for="reference">Reference/Contact Person <span style="color:#e74c3c">*</span></label>
+              <input id="reference" name="reference" type="text" required placeholder="Name and designation of reference person" />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary-outline" id="professional-back">Back</button>
+            <button type="button" class="btn btn-secondary" id="professional-next">Next</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Professional Credentials -->
+        <div id="step3-credentials" class="registration-step">
+          <div class="step-header">
+            <h2><i class="fas fa-certificate"></i> Professional Credentials</h2>
+            <p>Step 3 of 4</p>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="qualification">Highest Qualification <span style="color:#e74c3c">*</span></label>
+              <select id="qualification" name="qualification" required>
+                <option value="">Select qualification</option>
+                <option value="diploma">Diploma in Medical Laboratory Technology</option>
+                <option value="bachelor">Bachelor's Degree</option>
+                <option value="master">Master's Degree</option>
+                <option value="phd">PhD</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="university">University/Institute <span style="color:#e74c3c">*</span></label>
+              <input id="university" name="university" type="text" required placeholder="Name of university/institute" />
+            </div>
+
+            <div class="form-group">
+              <label for="license-number">License Number <span style="color:#e74c3c">*</span></label>
+              <input id="license-number" name="license-number" type="text" required placeholder="Enter your license number" />
+            </div>
+
+            <div class="form-group">
+              <label for="license-expiry">License Expiry Date</label>
+              <input id="license-expiry" name="license-expiry" type="date" />
+              <small style="color: #666;">Leave blank if not applicable</small>
+            </div>
+
+            <div class="form-group">
+              <label for="degree-certificate">Upload Degree Certificate (PDF) <span style="color:#e74c3c">*</span></label>
+              <input id="degree-certificate" name="degree-certificate" type="file" accept=".pdf" required />
+              <small style="color: #666;">Maximum file size: 5MB</small>
+            </div>
+
+            <div class="form-group">
+              <label for="professional-license">Upload Professional License (PDF) <span style="color:#e74c3c">*</span></label>
+              <input id="professional-license" name="professional-license" type="file" accept=".pdf" required />
+              <small style="color: #666;">Maximum file size: 5MB</small>
+            </div>
+
+            <div class="form-group">
+              <label for="employment-letter">Upload Employment Letter (PDF) <span style="color:#e74c3c">*</span></label>
+              <input id="employment-letter" name="employment-letter" type="file" accept=".pdf" required />
+              <small style="color: #666;">Maximum file size: 5MB</small>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary-outline" id="credentials-back">Back</button>
+            <button type="button" class="btn btn-secondary" id="credentials-next">Next</button>
+          </div>
+        </div>
+
+        <!-- Step 4: System Account Setup -->
+        <div id="step4-account" class="registration-step">
+          <div class="step-header">
+            <h2><i class="fas fa-cog"></i> System Account Setup</h2>
+            <p>Step 4 of 4</p>
+          </div>
+
+          <div class="form-grid">
+
+
+            <div class="form-group">
+              <label for="password">Password <span style="color:#e74c3c">*</span></label>
+              <input id="password" name="password" type="password" required placeholder="Create a password" />
+              <small style="color: #666;">Minimum 8 characters with uppercase, lowercase, and numbers</small>
+            </div>
+
+            <div class="form-group">
+              <label for="confirm-password">Confirm Password <span style="color:#e74c3c">*</span></label>
+              <input id="confirm-password" name="confirm-password" type="password" required placeholder="Confirm your password" />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary-outline" id="account-back">Back</button>
+            <button type="button" class="btn btn-primary" id="register-lab-tech">Register</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pending Verification Page -->
+      <div id="pending-verification" class="form-card" style="display: none;">
+        <div class="verification-content">
+          <div class="verification-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h2>Pending Verification</h2>
+          <p>Your registration has been submitted successfully!</p>
+          <div class="verification-details">
+            <p><strong>What happens next?</strong></p>
+            <ul>
+              <li>Your application will be reviewed by our verification team</li>
+              <li>We will verify your credentials and employment details</li>
+              <li>You will receive a confirmation email within 2-3 business days</li>
+              <li>Once approved, you will be able to access the system</li>
+            </ul>
+          </div>
+          <div class="verification-contact">
+            <p>If you have any questions, please contact us:</p>
+            <p><i class="fas fa-envelope"></i> verification@hivportal.org</p>
+            <p><i class="fas fa-phone"></i> 1-800-HIV-HELP</p>
+          </div>
+          <button class="btn btn-primary" onclick="window.location.href='index.html'">Return to Home</button>
+        </div>
+      </div>
+    </div>
+  
+
+
+  
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-heartbeat"></i> HIV Support Portal</h3>
+          <p>Providing confidential support and resources for people affected by HIV. Your privacy and well-being are our top priorities.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="testing.html">Testing Centers</a></li>
+            <li><a href="#">Support Groups</a></li>
+            <li><a href="#">Educational Materials</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> 1-800-HIV-HELP</li>
+            <li><i class="fas fa-envelope"></i> support@hivportal.org</li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Health St, City</li>
+            <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 HIV Support Portal. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // Role selection functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const roleSelection = document.getElementById('role-selection');
+      const registerForm = document.getElementById('register-form');
+      const registerBackBtn = document.getElementById('register-back');
+
+      // Handle role bar clicks
+      const roleBars = document.querySelectorAll('.role-bar');
+      roleBars.forEach(bar => {
+        bar.addEventListener('click', function() {
+          const radioInput = this.querySelector('input[type="radio"]');
+          const selectedRole = radioInput.value;
+
+          // Check if patient is selected
+          if (selectedRole === 'patient') {
+            // Hide role selection and show registration form
+            roleSelection.style.display = 'none';
+            registerForm.style.display = 'block';
+
+            // Store selected role for form submission
+            registerForm.setAttribute('data-selected-role', selectedRole);
+
+            // Remove selected state from all bars first
+            roleBars.forEach(b => {
+              b.classList.remove('selected');
+            });
+
+            // Add selected state to clicked bar
+            this.classList.add('selected');
+          } else if (selectedRole === 'lab-technician') {
+            // Show popup for lab technician registration options
+            showLabTechPopup();
+          } else {
+            // For other non-patient roles, show message that feature is coming soon
+            const roleName = selectedRole.replace('-', ' ');
+            alert('Registration for ' + roleName + ' role is coming soon! Please select Patient to continue with the demo.');
+
+            // Still show visual selection for demo purposes
+            roleBars.forEach(b => {
+              b.classList.remove('selected');
+            });
+            this.classList.add('selected');
+          }
+        });
+
+        // Add hover effects
+        bar.addEventListener('mouseenter', function() {
+          const radioInput = this.querySelector('input[type="radio"]');
+          if (!radioInput.checked) {
+            this.style.transform = 'translateX(3px)';
+            this.style.boxShadow = '0 3px 15px rgba(3, 30, 70, 0.1)';
+          }
+        });
+
+        bar.addEventListener('mouseleave', function() {
+          const radioInput = this.querySelector('input[type="radio"]');
+          if (!radioInput.checked) {
+            this.style.transform = 'translateX(0)';
+            this.style.boxShadow = 'none';
+          }
+        });
+      });
+
+      // Handle back button in registration form
+      registerBackBtn.addEventListener('click', function() {
+        registerForm.style.display = 'none';
+        roleSelection.style.display = 'block';
+
+        // Reset form
+        registerForm.reset();
+
+        // Remove selected state from all bars
+        roleBars.forEach(bar => {
+          bar.classList.remove('selected');
+        });
+      });
+
+      // Handle registration form submission - now using AJAX for better response handling
+      registerForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Get form data
+        const formData = new FormData(registerForm);
+
+        // Validate form data before submission
+        const firstInitial = formData.get('first-initial').trim();
+        const lastInitial = formData.get('last-initial').trim();
+        const phone1 = formData.get('phone1').trim();
+        const phone2 = formData.get('phone2').trim();
+        const district = formData.get('district');
+        const password = formData.get('password');
+
+        // Client-side validation
+        if (!firstInitial || !lastInitial || !phone1 || !district || !password) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+
+        // Validate password strength
+        if (password.length < 8) {
+          alert('Password must be at least 8 characters long.');
+          return;
+        }
+
+        if (firstInitial.length > 1 || lastInitial.length > 1) {
+          alert('First and last initials must be exactly one character each.');
+          return;
+        }
+
+        // Validate phone number format (Sri Lankan format)
+        const phoneRegex = /^07[0-9]{8}$/;
+        if (!phoneRegex.test(phone1)) {
+          alert('Primary phone must be in format 07xxxxxxxx (10 digits starting with 07).');
+          return;
+        }
+
+        if (phone2 && !phoneRegex.test(phone2)) {
+          alert('Secondary phone must be in format 07xxxxxxxx (10 digits starting with 07).');
+          return;
+        }
+
+        // Submit form using AJAX for better response handling
+        try {
+          const response = await fetch('register-handler.php', {
+            method: 'POST',
+            body: formData
+          });
+
+          const result = await response.json();
+
+          if (response.ok && result.success) {
+            // Success - store backend-generated profile_id and redirect to review page
+            const registrationDataWithProfile = {
+              firstInitial: firstInitial,
+              lastInitial: lastInitial,
+              phone1: phone1,
+              phone2: phone2 || '',
+              district: district,
+              role: 'patient',
+              profile_id: result.profile_id, // Use backend-generated profile_id
+              createdDate: new Date().toISOString()
+            };
+            localStorage.setItem('registrationData', JSON.stringify(registrationDataWithProfile));
+
+            alert('Patient account created successfully! Redirecting to review page...');
+            window.location.href = result.redirect;
+          } else {
+            // Error from server
+            alert('Error: ' + result.message);
+          }
+        } catch (error) {
+          console.error('Registration error:', error);
+          alert('Network error. Please check your connection and try again.');
+        }
+      });
+
+      // Lab Technician Registration Functions
+      function showLabTechPopup() {
+        document.getElementById('lab-tech-popup').style.display = 'flex';
+      }
+
+      // Close popup
+      document.getElementById('popup-close').addEventListener('click', function() {
+        document.getElementById('lab-tech-popup').style.display = 'none';
+        // Remove selected state from lab technician role
+        roleBars.forEach(bar => {
+          bar.classList.remove('selected');
+        });
+      });
+
+      // Handle popup register button
+      document.getElementById('lab-tech-register').addEventListener('click', function() {
+        document.getElementById('lab-tech-popup').style.display = 'none';
+        window.location.href = 'lab-tech-step1.html';
+      });
+
+      // Handle popup login button
+      document.getElementById('lab-tech-login').addEventListener('click', function() {
+        document.getElementById('lab-tech-popup').style.display = 'none';
+        window.location.href = 'lab-tech-login.html';
+        // Remove selected state from lab technician role
+        roleBars.forEach(bar => {
+          bar.classList.remove('selected');
+        });
+      });
+
+      // Multi-step form navigation
+      let currentStep = 1;
+      const totalSteps = 4;
+
+      // Personal details next button
+      document.getElementById('personal-next').addEventListener('click', function() {
+        if (validatePersonalDetails()) {
+          showStep(2);
+        }
+      });
+
+      // Professional details next button
+      document.getElementById('professional-next').addEventListener('click', function() {
+        if (validateProfessionalDetails()) {
+          showStep(3);
+        }
+      });
+
+      // Credentials next button
+      document.getElementById('credentials-next').addEventListener('click', function() {
+        if (validateCredentials()) {
+          showStep(4);
+        }
+      });
+
+      // Back button handlers
+      document.getElementById('personal-back').addEventListener('click', function() {
+        document.getElementById('lab-tech-registration').style.display = 'none';
+        document.getElementById('role-selection').style.display = 'block';
+        currentStep = 1;
+      });
+
+      document.getElementById('professional-back').addEventListener('click', function() {
+        showStep(1);
+      });
+
+      document.getElementById('credentials-back').addEventListener('click', function() {
+        showStep(2);
+      });
+
+      document.getElementById('account-back').addEventListener('click', function() {
+        showStep(3);
+      });
+
+      // Final registration
+      document.getElementById('register-lab-tech').addEventListener('click', function() {
+        if (validateAccountSetup()) {
+          submitLabTechRegistration();
+        }
+      });
+
+      function showStep(step) {
+        // Hide all steps
+        for (let i = 1; i <= totalSteps; i++) {
+          document.getElementById(`step${i}-personal`).style.display = 'none';
+          document.getElementById(`step${i}-professional`).style.display = 'none';
+          document.getElementById(`step${i}-credentials`).style.display = 'none';
+          document.getElementById(`step${i}-account`).style.display = 'none';
+        }
+
+        // Show current step
+        document.getElementById(`step${step}-personal`).style.display = 'block';
+        currentStep = step;
+
+        // Update step indicators if needed
+        updateStepIndicators();
+      }
+
+      function updateStepIndicators() {
+        // Update step header text
+        const stepHeaders = document.querySelectorAll('.step-header p');
+        stepHeaders.forEach((header, index) => {
+          const stepNumber = index + 1;
+          if (stepNumber === currentStep) {
+            header.textContent = `Step ${currentStep} of ${totalSteps}`;
+          }
+        });
+      }
+
+      function validatePersonalDetails() {
+        const fullName = document.getElementById('full-name').value.trim();
+        const gender = document.getElementById('gender').value;
+        const dob = document.getElementById('dob').value;
+        const nic = document.getElementById('nic').value.trim();
+        const primaryContact = document.getElementById('primary-contact').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const address = document.getElementById('address').value.trim();
+
+        if (!fullName || !gender || !dob || !nic || !primaryContact || !email || !address) {
+          alert('Please fill in all required fields.');
+          return false;
+        }
+
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert('Please enter a valid email address.');
+          return false;
+        }
+
+        // NIC validation (Sri Lankan NIC format)
+        const nicRegex = /^\d{9}[vVxX]|\d{12}$/;
+        if (!nicRegex.test(nic)) {
+          alert('Please enter a valid NIC number.');
+          return false;
+        }
+
+        return true;
+      }
+
+      function validateProfessionalDetails() {
+        const currentHospital = document.getElementById('current-hospital').value.trim();
+        const hospitalAddress = document.getElementById('hospital-address').value.trim();
+        const department = document.getElementById('department').value;
+        const designation = document.getElementById('designation').value.trim();
+        const employeeId = document.getElementById('employee-id').value.trim();
+        const yearsExperience = document.getElementById('years-experience').value;
+        const reference = document.getElementById('reference').value.trim();
+
+        if (!currentHospital || !hospitalAddress || !department || !designation || !employeeId || !yearsExperience || !reference) {
+          alert('Please fill in all required fields.');
+          return false;
+        }
+
+        return true;
+      }
+
+      function validateCredentials() {
+        const qualification = document.getElementById('qualification').value;
+        const university = document.getElementById('university').value.trim();
+        const licenseNumber = document.getElementById('license-number').value.trim();
+        const degreeCertificate = document.getElementById('degree-certificate').files[0];
+        const professionalLicense = document.getElementById('professional-license').files[0];
+        const employmentLetter = document.getElementById('employment-letter').files[0];
+
+        if (!qualification || !university || !licenseNumber || !degreeCertificate || !professionalLicense || !employmentLetter) {
+          alert('Please fill in all required fields and upload all required documents.');
+          return false;
+        }
+
+        // Validate file types
+        const validTypes = ['application/pdf'];
+        if (!validTypes.includes(degreeCertificate.type) || !validTypes.includes(professionalLicense.type) || !validTypes.includes(employmentLetter.type)) {
+          alert('Please upload PDF files only.');
+          return false;
+        }
+
+        // Validate file sizes (5MB max)
+        const maxSize = 5 * 1024 * 1024;
+        if (degreeCertificate.size > maxSize || professionalLicense.size > maxSize || employmentLetter.size > maxSize) {
+          alert('File size must be less than 5MB for each document.');
+          return false;
+        }
+
+        return true;
+      }
+
+      function validateAccountSetup() {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+        if (!username || !password || !confirmPassword) {
+          alert('Please fill in all required fields.');
+          return false;
+        }
+
+        if (username.length < 6 || username.length > 20) {
+          alert('Username must be between 6 and 20 characters.');
+          return false;
+        }
+
+        if (password.length < 8) {
+          alert('Password must be at least 8 characters long.');
+          return false;
+        }
+
+        if (password !== confirmPassword) {
+          alert('Passwords do not match.');
+          return false;
+        }
+
+        return true;
+      }
+
+      async function submitLabTechRegistration() {
+        // Show loading state
+        document.getElementById('register-lab-tech').textContent = 'Submitting...';
+        document.getElementById('register-lab-tech').disabled = true;
+
+        // Collect all form data
+        const formData = new FormData();
+
+        // Personal details
+        formData.append('fullName', document.getElementById('full-name').value.trim());
+        formData.append('gender', document.getElementById('gender').value);
+        formData.append('dob', document.getElementById('dob').value);
+        formData.append('nic', document.getElementById('nic').value.trim());
+        formData.append('primaryContact', document.getElementById('primary-contact').value.trim());
+        formData.append('secondaryContact', document.getElementById('secondary-contact').value.trim());
+        formData.append('email', document.getElementById('email').value.trim());
+        formData.append('address', document.getElementById('address').value.trim());
+
+        // Professional details
+        formData.append('currentHospital', document.getElementById('current-hospital').value.trim());
+        formData.append('hospitalAddress', document.getElementById('hospital-address').value.trim());
+        formData.append('department', document.getElementById('department').value);
+        formData.append('designation', document.getElementById('designation').value.trim());
+        formData.append('employeeId', document.getElementById('employee-id').value.trim());
+        formData.append('yearsExperience', document.getElementById('years-experience').value);
+        formData.append('reference', document.getElementById('reference').value.trim());
+
+        // Credentials
+        formData.append('qualification', document.getElementById('qualification').value);
+        formData.append('university', document.getElementById('university').value.trim());
+        formData.append('licenseNumber', document.getElementById('license-number').value.trim());
+        formData.append('licenseExpiry', document.getElementById('license-expiry').value);
+
+        // Account setup
+        formData.append('username', document.getElementById('username').value.trim());
+        formData.append('password', document.getElementById('password').value);
+
+        // File uploads
+        const degreeCertificate = document.getElementById('degree-certificate').files[0];
+        const professionalLicense = document.getElementById('professional-license').files[0];
+        const employmentLetter = document.getElementById('employment-letter').files[0];
+
+        if (degreeCertificate) formData.append('degreeCertificate', degreeCertificate);
+        if (professionalLicense) formData.append('professionalLicense', professionalLicense);
+        if (employmentLetter) formData.append('employmentLetter', employmentLetter);
+
+        try {
+          const response = await fetch('labtech-handler.php', {
+            method: 'POST',
+            body: formData
+          });
+
+          const result = await response.json();
+
+          if (response.ok && result.success) {
+            // Store registration data for reference
+            const registrationData = {
+              fullName: document.getElementById('full-name').value.trim(),
+              email: document.getElementById('email').value.trim(),
+              employeeId: document.getElementById('employee-id').value.trim(),
+              currentHospital: document.getElementById('current-hospital').value.trim(),
+              department: document.getElementById('department').value,
+              primaryContact: document.getElementById('primary-contact').value.trim(),
+              hospitalAddress: document.getElementById('hospital-address').value.trim(),
+              qualification: document.getElementById('qualification').value,
+              registrationDate: new Date().toISOString()
+            };
+            localStorage.setItem('labTechRegistrationData', JSON.stringify(registrationData));
+
+            // Show pending verification page
+            document.getElementById('lab-tech-registration').style.display = 'none';
+            document.getElementById('pending-verification').style.display = 'block';
+
+          } else {
+            alert('Registration failed: ' + result.message);
+            document.getElementById('register-lab-tech').textContent = 'Register';
+            document.getElementById('register-lab-tech').disabled = false;
+          }
+
+        } catch (error) {
+          console.error('Registration error:', error);
+          alert('Network error. Please check your connection and try again.');
+          document.getElementById('register-lab-tech').textContent = 'Register';
+          document.getElementById('register-lab-tech').disabled = false;
+        }
+      }
+
+      // Close popup when clicking outside
+      document.getElementById('lab-tech-popup').addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.style.display = 'none';
+          roleBars.forEach(bar => {
+            bar.classList.remove('selected');
+          });
+        }
+      });
+    });
+  </script>
+
+  <style>
+    /* Lab Technician Popup Styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .popup-content {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    .popup-header {
+      background: linear-gradient(135deg, #031e46 0%, #6b8cae 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 20px 20px 0 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .popup-header h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .popup-header h2 i {
+      color: #4facfe;
+    }
+
+    .popup-header p {
+      font-size: 16px;
+      opacity: 0.9;
+      margin: 0;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .popup-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    .popup-body {
+      padding: 40px 30px;
+    }
+
+    .access-options {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .option-card {
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .option-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-color: #031e46;
+    }
+
+    .option-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #031e46 0%, #6b8cae 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 20px;
+      transition: all 0.3s ease;
+    }
+
+    .option-card:hover .option-icon {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, #6b8cae 0%, #031e46 100%);
+    }
+
+    .option-card h3 {
+      font-size: 20px;
+      color: #031e46;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .option-card p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .option-card .btn {
+      width: 100%;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .option-card .btn-primary {
+      background: linear-gradient(135deg, #031e46 0%, #6b8cae 100%);
+      border: none;
+      color: white;
+    }
+
+    .option-card .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(3, 30, 70, 0.3);
+    }
+
+    .option-card .btn-outline {
+      background: transparent;
+      color: #031e46;
+      border: 2px solid #031e46;
+    }
+
+    .option-card .btn-outline:hover {
+      background: #031e46;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(3, 30, 70, 0.2);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* Responsive Design for Popup */
+    @media (max-width: 768px) {
+      .popup-content {
+        width: 95%;
+        margin: 20px;
+      }
+
+      .popup-header {
+        padding: 25px 20px;
+      }
+
+      .popup-header h2 {
+        font-size: 20px;
+      }
+
+      .popup-body {
+        padding: 30px 20px;
+      }
+
+      .option-card {
+        padding: 25px 20px;
+      }
+
+      .option-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .popup-content {
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+        margin: 0;
+      }
+
+      .popup-header {
+        border-radius: 0;
+      }
+
+      .option-card {
+        padding: 20px 15px;
+      }
+
+      .option-card h3 {
+        font-size: 18px;
+      }
+
+      .option-card p {
+        font-size: 13px;
+      }
+    }
+  </style>
+    </body>
+</html>

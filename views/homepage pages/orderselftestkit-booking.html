@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Self-Test Kit - HIVeCare</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-heartbeat"></i> HIVeCare</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button class="auth-btn login-btn">Login</button>
+        <button class="auth-btn register-btn">Register</button>
+      </div>
+      <div class="language-switcher">
+        <select id="language-select" onchange="changeLanguage(this.value)">
+          <option value="en" selected>English</option>
+          <option value="si">සිංහල (Sinhala)</option>
+        </select>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Self-Test Kit Booking Section -->
+  <section class="appointment-booking-section">
+    <div class="container">
+      <div class="booking-header">
+        <h1>Order Self-Test Kit</h1>
+        <p>Order a confidential self-test kit for HIV testing in the privacy of your home</p>
+      </div>
+
+      <form class="appointment-form" id="selfTestKitForm">
+        <!-- Kit Type Selection -->
+        <div class="form-section">
+          <h2><i class="fas fa-box"></i> Select Kit Type</h2>
+          <div class="test-type-grid">
+            <div class="test-type-card">
+              <input type="radio" id="finger-prick" name="kit-type" value="finger-prick" required>
+              <label for="finger-prick">
+                <div class="test-icon">
+                  <i class="fas fa-vial"></i>
+                </div>
+                <h3>HIV Rapid Test Kit</h3>
+                <p>Quick results in 15-20 minutes</p>
+                <span class="kit-price">LKR 1,500</span>
+              </label>
+            </div>
+
+            <div class="test-type-card">
+              <input type="radio" id="oral-fluid" name="kit-type" value="oral-fluid" required>
+              <label for="oral-fluid">
+                <div class="test-icon">
+                  <i class="fas fa-tint"></i>
+                </div>
+                <h3>HIV Oral Fluid Kit</h3>
+                <p>No blood required - oral swab test</p>
+                <span class="kit-price">LKR 1,800</span>
+              </label>
+            </div>
+
+            <div class="test-type-card">
+              <input type="radio" id="combo" name="kit-type" value="combo" required>
+              <label for="combo">
+                <div class="test-icon">
+                  <i class="fas fa-layer-group"></i>
+                </div>
+                <h3>HIV/STI Combo Kit</h3>
+                <p>Tests for HIV and common STIs</p>
+                <span class="kit-price">LKR 2,500</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Account Information -->
+        <div class="form-section">
+          <h2><i class="fas fa-user-circle"></i> Account Information</h2>
+          <div class="form-group">
+            <label for="account-number">Profile ID *</label>
+            <input type="text" id="account-number" name="account-number" required placeholder="Enter your profile ID">
+          </div>
+        </div>
+
+        <!-- Location Selection -->
+        <div class="form-section">
+          <h2><i class="fas fa-map-marker-alt"></i> Collection Location</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="district">Select District *</label>
+              <select id="district" name="district" required>
+                <option value="">Choose your district</option>
+                <option value="colombo">Colombo</option>
+                <option value="gampaha">Gampaha</option>
+                <option value="kalutara">Kalutara</option>
+                <option value="kandy">Kandy</option>
+                <option value="matale">Matale</option>
+                <option value="nuwara-eliya">Nuwara Eliya</option>
+                <option value="galle">Galle</option>
+                <option value="matara">Matara</option>
+                <option value="hambantota">Hambantota</option>
+                <option value="jaffna">Jaffna</option>
+                <option value="kilinochchi">Kilinochchi</option>
+                <option value="mannar">Mannar</option>
+                <option value="vavuniya">Vavuniya</option>
+                <option value="mullaitivu">Mullaitivu</option>
+                <option value="batticaloa">Batticaloa</option>
+                <option value="ampara">Ampara</option>
+                <option value="trincomalee">Trincomalee</option>
+                <option value="kurunegala">Kurunegala</option>
+                <option value="puttalam">Puttalam</option>
+                <option value="anuradhapura">Anuradhapura</option>
+                <option value="polonnaruwa">Polonnaruwa</option>
+                <option value="badulla">Badulla</option>
+                <option value="monaragala">Monaragala</option>
+                <option value="ratnapura">Ratnapura</option>
+                <option value="kegalle">Kegalle</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="collection-point">Select Collection Point *</label>
+              <select id="collection-point" name="collection-point" required disabled>
+                <option value="">First select a district</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Delivery Address *</label>
+            <textarea id="address" name="address" required placeholder="Enter your full address for kit delivery" rows="3"></textarea>
+          </div>
+        </div>
+
+        <!-- Date and Time Selection -->
+        <div class="form-section">
+          <h2><i class="fas fa-calendar-alt"></i> Collection Date & Time</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="collection-date">Select Collection Date *</label>
+              <input type="date" id="collection-date" name="collection-date" required min="">
+            </div>
+
+            <div class="form-group">
+              <label for="collection-time">Available Collection Times *</label>
+              <select id="collection-time" name="collection-time" required disabled>
+                <option value="">First select date and collection point</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-section">
+          <button type="submit" class="btn btn-primary schedule-btn">
+            <i class="fas fa-shopping-cart"></i>
+            Order Self-Test Kit
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+ 
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-heartbeat"></i> HIV Support Portal</h3>
+          <p>Providing confidential support and resources for people affected by HIV. Your privacy and well-being are our top priorities.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="testing.html">Testing Centers</a></li>
+            <li><a href="#">Support Groups</a></li>
+            <li><a href="#">Educational Materials</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> 1-800-HIV-HELP</li>
+            <li><i class="fas fa-envelope"></i> support@hivportal.org</li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Health St, City</li>
+            <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 HIV Support Portal. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Collection points by district (pharmacies, clinics, health centers)
+    const collectionPointsByDistrict = {
+      'colombo': [
+        'Colombo General Hospital Collection Point',
+        'Colombo Medical Center',
+        'Union Place Pharmacy',
+        'Bambalapitiya Health Clinic',
+        'Wellawatta Medical Center',
+        'Nugegoda Health Center'
+      ],
+      'gampaha': [
+        'Gampaha Medical Center',
+        'Ragama Health Clinic',
+        'Negombo General Clinic',
+        'Minuwangoda Pharmacy'
+      ],
+      'kalutara': [
+        'Kalutara Health Center',
+        'Panadura Medical Clinic',
+        'Horana Health Center'
+      ],
+      'kandy': [
+        'Kandy Medical Center',
+        'Peradeniya Health Clinic',
+        'Gampola Health Center'
+      ],
+      'matale': [
+        'Matale Health Center',
+        'Dambulla Medical Clinic'
+      ],
+      'nuwara-eliya': [
+        'Nuwara Eliya Health Center',
+        'Dickoya Medical Clinic'
+      ],
+      'galle': [
+        'Galle Medical Center',
+        'Mahamodara Health Clinic',
+        'Elpitiya Health Center'
+      ],
+      'matara': [
+        'Matara Health Center',
+        'Hambantota Medical Clinic'
+      ],
+      'hambantota': [
+        'Hambantota Health Center',
+        'Tangalle Medical Clinic'
+      ],
+      'jaffna': [
+        'Jaffna Medical Center',
+        'Point Pedro Health Clinic'
+      ],
+      'kilinochchi': [
+        'Kilinochchi Health Center'
+      ],
+      'mannar': [
+        'Mannar Medical Clinic'
+      ],
+      'vavuniya': [
+        'Vavuniya Health Center'
+      ],
+      'mullaitivu': [
+        'Mullaitivu Medical Clinic'
+      ],
+      'batticaloa': [
+        'Batticaloa Health Center',
+        'Kattankudy Medical Clinic'
+      ],
+      'ampara': [
+        'Ampara Health Center',
+        'Kalmunai Medical Clinic'
+      ],
+      'trincomalee': [
+        'Trincomalee Health Center'
+      ],
+      'kurunegala': [
+        'Kurunegala Medical Center',
+        'Kuliyapitiya Health Clinic'
+      ],
+      'puttalam': [
+        'Puttalam Health Center',
+        'Chilaw Medical Clinic'
+      ],
+      'anuradhapura': [
+        'Anuradhapura Health Center',
+        'Medawachchiya Medical Clinic'
+      ],
+      'polonnaruwa': [
+        'Polonnaruwa Health Center'
+      ],
+      'badulla': [
+        'Badulla Medical Center',
+        'Bandarawela Health Clinic'
+      ],
+      'monaragala': [
+        'Monaragala Health Center'
+      ],
+      'ratnapura': [
+        'Ratnapura Medical Center',
+        'Embilipitiya Health Clinic'
+      ],
+      'kegalle': [
+        'Kegalle Health Center',
+        'Warakapola Medical Clinic'
+      ]
+    };
+
+    // Collection time slots (9 AM to 4 PM, hourly intervals)
+    const collectionTimeSlots = [
+      '09:00:00', '10:00:00', '11:00:00', '14:00:00', '15:00:00', '16:00:00'
+    ];
+
+    // Set minimum date to today
+    document.addEventListener('DOMContentLoaded', function() {
+      const dateInput = document.getElementById('collection-date');
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.setAttribute('min', today);
+
+      // District change handler
+      document.getElementById('district').addEventListener('change', function() {
+        const district = this.value;
+        const collectionPointSelect = document.getElementById('collection-point');
+        const timeSelect = document.getElementById('collection-time');
+
+        // Clear previous selections
+        collectionPointSelect.innerHTML = '<option value="">Select collection point</option>';
+        timeSelect.innerHTML = '<option value="">First select date and collection point</option>';
+        timeSelect.disabled = true;
+
+        if (district) {
+          // Populate collection points
+          const collectionPoints = collectionPointsByDistrict[district] || [];
+          collectionPoints.forEach(point => {
+            const option = document.createElement('option');
+            option.value = point.toLowerCase().replace(/\s+/g, '-');
+            option.textContent = point;
+            collectionPointSelect.appendChild(option);
+          });
+          collectionPointSelect.disabled = false;
+        } else {
+          collectionPointSelect.disabled = true;
+        }
+      });
+
+      // Collection point change handler
+      document.getElementById('collection-point').addEventListener('change', function() {
+        const collectionPoint = this.value;
+        const dateInput = document.getElementById('collection-date');
+        const timeSelect = document.getElementById('collection-time');
+
+        timeSelect.innerHTML = '<option value="">First select date</option>';
+        timeSelect.disabled = true;
+
+        if (collectionPoint && dateInput.value) {
+          // Populate time slots
+          collectionTimeSlots.forEach(slot => {
+            const timeString = formatTimeDisplay(slot);
+            const option = document.createElement('option');
+            option.value = slot;
+            option.textContent = timeString;
+            timeSelect.appendChild(option);
+          });
+          timeSelect.disabled = false;
+        }
+      });
+
+      // Date change handler
+      document.getElementById('collection-date').addEventListener('change', function() {
+        const date = this.value;
+        const collectionPointSelect = document.getElementById('collection-point');
+        const timeSelect = document.getElementById('collection-time');
+
+        timeSelect.innerHTML = '<option value="">First select collection point</option>';
+        timeSelect.disabled = true;
+
+        if (date && collectionPointSelect.value) {
+          // Populate time slots
+          collectionTimeSlots.forEach(slot => {
+            const timeString = formatTimeDisplay(slot);
+            const option = document.createElement('option');
+            option.value = slot;
+            option.textContent = timeString;
+            timeSelect.appendChild(option);
+          });
+          timeSelect.disabled = false;
+        }
+      });
+
+      // Form submission - using AJAX for better response handling like the working registration system
+      document.getElementById('selfTestKitForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Get form data - using camelCase to match PHP handler expectations
+        const testKitType = document.querySelector('input[name="kit-type"]:checked')?.value;
+        const accountNumber = document.getElementById('account-number').value;
+        const district = document.getElementById('district').value;
+        const collectionPoint = document.getElementById('collection-point').value;
+        const deliveryAddress = document.getElementById('address').value;
+        const collectionDate = document.getElementById('collection-date').value;
+        const collectionTime = document.getElementById('collection-time').value;
+
+        // Validate required fields - using correct variable names
+        if (!testKitType || !accountNumber || !district || !collectionPoint || !deliveryAddress || !collectionDate || !collectionTime) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+
+        // Create FormData object for submission - using camelCase field names to match PHP handler
+        const formData = new FormData();
+        formData.append('testKitType', testKitType);
+        formData.append('accountNumber', accountNumber);
+        formData.append('district', district);
+        formData.append('collectionPoint', collectionPoint);
+        formData.append('deliveryAddress', deliveryAddress);
+        formData.append('collectionDate', collectionDate);
+        formData.append('collectionTime', collectionTime);
+
+        try {
+          const response = await fetch('orderselftestkit-handler.php', {
+            method: 'POST',
+            body: formData
+          });
+
+          const result = await response.json();
+
+          if (response.ok && result.success) {
+            // Success - redirect to success page with order details including kit_order_no
+            const kitOrderNo = result.kit_order_no || 'N/A';
+            const successUrl = `orderselftestkit-success.html?kit_order_no=${encodeURIComponent(kitOrderNo)}&profile_id=${encodeURIComponent(accountNumber)}&kit_type=${encodeURIComponent(testKitType)}&collection_point=${encodeURIComponent(collectionPoint)}&date=${encodeURIComponent(collectionDate)}&time=${encodeURIComponent(collectionTime)}`;
+            window.location.href = successUrl;
+          } else {
+            // Error from server - show detailed error message
+            console.error('Server error:', result);
+            alert('Error: ' + (result.message || 'Unknown error occurred'));
+          }
+        } catch (error) {
+          console.error('Order submission error:', error);
+          alert('Network error. Please check your connection and try again.');
+        }
+      });
+
+      // Check for URL parameters (success/error messages)
+      document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const success = urlParams.get('success');
+        const error = urlParams.get('error');
+        const message = urlParams.get('message');
+
+        if (success === '1' && message) {
+          // Show success popup with order details
+          showSuccessPopup();
+        } else if (error === '1' && message) {
+          // Show error message
+          alert('Error: ' + decodeURIComponent(message));
+        }
+      });
+
+    });
+
+    function formatTimeDisplay(time24) {
+      // Convert 24-hour format to 12-hour format for display
+      const [hours, minutes] = time24.split(':');
+      const hour = parseInt(hours);
+      const ampm = hour >= 12 ? 'PM' : 'AM';
+      const displayHour = hour % 12 || 12;
+      return `${displayHour}:${minutes} ${ampm}`;
+    }
+
+    function showSuccessPopup() {
+      // Get URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const profileId = urlParams.get('profile_id');
+      const kitType = urlParams.get('kit_type');
+      const collectionPoint = urlParams.get('collection_point');
+      const date = urlParams.get('date');
+      const time = urlParams.get('time');
+
+      // Format data for display
+      const kitTypeDisplay = formatKitType(kitType);
+      const collectionPointDisplay = formatCollectionPointName(collectionPoint);
+      const dateTimeDisplay = formatDateTime(date, time);
+
+      // Populate popup with order details
+      document.getElementById('popup-profile-id').textContent = profileId || 'N/A';
+      document.getElementById('popup-kit-type').textContent = kitTypeDisplay;
+      document.getElementById('popup-collection-point').textContent = collectionPointDisplay;
+      document.getElementById('popup-date-time').textContent = dateTimeDisplay;
+
+      // Show popup
+      document.getElementById('success-popup').style.display = 'flex';
+    }
+
+    function formatKitType(kitType) {
+      switch(kitType) {
+        case 'hiv-rapid': return 'HIV Rapid Test Kit';
+        case 'hiv-oral': return 'HIV Oral Fluid Kit';
+        case 'combo-kit': return 'HIV/STI Combo Kit';
+        default: return kitType ? kitType.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : 'N/A';
+      }
+    }
+
+    function formatCollectionPointName(collectionPoint) {
+      return collectionPoint ? collectionPoint.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : 'N/A';
+    }
+
+    function formatDateTime(date, time) {
+      if (!date || !time) return 'N/A';
+
+      const dateObj = new Date(date);
+      const formattedDate = dateObj.toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      const timeDisplay = formatTimeDisplay(time);
+      return `${formattedDate} at ${timeDisplay}`;
+    }
+
+    function orderAnotherKit() {
+      // Close popup and redirect to booking page (clears URL parameters)
+      document.getElementById('success-popup').style.display = 'none';
+
+      // Clear the form
+      document.getElementById('selfTestKitForm').reset();
+
+      // Reset form state
+      document.getElementById('collection-point').disabled = true;
+      document.getElementById('collection-time').disabled = true;
+      document.querySelectorAll('.test-type-card input').forEach(input => {
+        input.checked = false;
+      });
+
+      // Clear URL parameters by redirecting to the same page without parameters
+      window.location.href = 'orderselftestkit-booking.html';
+    }
+
+    function closePopup() {
+      // Close popup without clearing form (in case user wants to review)
+      document.getElementById('success-popup').style.display = 'none';
+    }
+
+    function goToDashboard() {
+      window.location.href = 'dashboard.html';
+    }
+  </script>
+</body>
+</html>

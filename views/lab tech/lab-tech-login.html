@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab Technician Login - HIVeCare</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <meta name="description" content="Login to access your HIVeCare Lab Technician portal." />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-heartbeat"></i> HIVeCare</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button class="auth-btn login-btn">Login</button>
+        <button class="auth-btn register-btn">Register</button>
+      </div>
+      <div class="language-switcher">
+        <select id="language-select">
+          <option value="en" selected>English</option>
+          <option value="si">සිංහල (Sinhala)</option>
+        </select>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="form-page">
+    <div class="container">
+      <div class="form-card">
+        <div class="login-header">
+          <div class="login-icon">
+            <i class="fas fa-flask"></i>
+          </div>
+          <h1>Lab Technician Portal</h1>
+          <p>Welcome back! Please sign in to access your lab technician dashboard</p>
+        </div>
+
+        <form id="lab-tech-login-form" novalidate>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="tech-id">Lab Technician ID <span style="color:#e74c3c">*</span></label>
+              <input
+                id="tech-id"
+                name="tech-id"
+                type="text"
+                required
+                placeholder="Enter your Lab Technician ID (e.g., LT-2025-001)"
+                style="font-family: monospace;"
+              />
+              <small style="color: #666;">Enter your registered Lab Technician ID</small>
+            </div>
+
+            <div class="form-group">
+              <label for="tech-password">Password <span style="color:#e74c3c">*</span></label>
+              <input
+                id="tech-password"
+                name="password"
+                type="password"
+                required
+                placeholder="Enter your password"
+                minlength="8"
+              />
+              <small style="color: #666;">Minimum 8 characters</small>
+            </div>
+          </div>
+
+          <div class="form-actions" style="margin-top: 40px;">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <i class="fas fa-sign-in-alt"></i> Sign In to Portal
+            </button>
+          </div>
+
+          <div class="login-footer">
+            <p>New to the system? <a href="register.html">Register as Lab Technician</a></p>
+            <p><a href="index.html">← Back to Home</a></p>
+          </div>
+        </form>
+
+        <!-- Login Success Message -->
+        <div id="login-success" class="success-message" style="display: none;">
+          <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h2>Login Successful!</h2>
+          <p>Redirecting to your lab technician dashboard...</p>
+        </div>
+
+        <!-- Login Error Message -->
+        <div id="login-error" class="error-message" style="display: none;">
+          <div class="error-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <h2>Login Failed</h2>
+          <p id="error-text">Invalid Lab Technician ID or password. Please try again.</p>
+          <button class="btn btn-secondary" onclick="showLoginForm()">Try Again</button>
+        </div>
+      </div>
+
+      <!-- Loading Spinner -->
+      <div id="login-loading" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner">
+          <i class="fas fa-spinner fa-spin"></i>
+          <p>Signing you in...</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <?php include 'footer.html'; ?>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const loginForm = document.getElementById('lab-tech-login-form');
+      const loginSuccess = document.getElementById('login-success');
+      const loginError = document.getElementById('login-error');
+      const loginLoading = document.getElementById('login-loading');
+
+      // Handle login form submission
+      loginForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Get form data
+        const formData = new FormData(loginForm);
+        const techId = formData.get('tech-id').trim();
+        const password = formData.get('password');
+
+        // Validate inputs
+        if (!techId || !password) {
+          showError('Please fill in all required fields.');
+          return;
+        }
+
+        if (password.length < 8) {
+          showError('Password must be at least 8 characters long.');
+          return;
+        }
+
+        // Show loading state
+        showLoading();
+
+        try {
+          // Submit login request
+          const response = await fetch('labtech-login-handler.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              techId: techId,
+              password: password
+            })
+          });
+
+          const result = await response.json();
+
+          if (response.ok && result.success) {
+            // Login successful
+            showSuccess();
+
+            // Store lab technician session data
+            const labTechSession = {
+              tech_id: result.tech_id,
+              full_name: result.full_name,
+              organization: result.organization,
+              department: result.department,
+              email: result.email,
+              phone: result.phone,
+              location: result.location,
+              qualification: result.qualification,
+              login_time: new Date().toISOString()
+            };
+            localStorage.setItem('labTechSession', JSON.stringify(labTechSession));
+
+            // Also store the registration data if available for consistency
+            const existingRegistrationData = JSON.parse(localStorage.getItem('labTechRegistrationData') || '{}');
+            if (existingRegistrationData.fullName) {
+              // Update registration data with server response if needed
+              localStorage.setItem('labTechRegistrationData', JSON.stringify({
+                ...existingRegistrationData,
+                tech_id: result.tech_id,
+                full_name: result.full_name,
+                organization: result.organization,
+                department: result.department,
+                email: result.email,
+                phone: result.phone,
+                location: result.location,
+                qualification: result.qualification
+              }));
+            }
+
+            // Redirect after short delay
+            setTimeout(() => {
+              window.location.href = result.redirect || 'lab-tech-dashboard.html';
+            }, 1500);
+
+          } else {
+            // Login failed
+            showError(result.message || 'Invalid Lab Technician ID or password.');
+          }
+
+        } catch (error) {
+          console.error('Login error:', error);
+          showError('Network error. Please check your connection and try again.');
+        }
+      });
+
+      function showLoading() {
+        loginForm.style.display = 'none';
+        loginSuccess.style.display = 'none';
+        loginError.style.display = 'none';
+        loginLoading.style.display = 'flex';
+      }
+
+      function showSuccess() {
+        loginForm.style.display = 'none';
+        loginLoading.style.display = 'none';
+        loginError.style.display = 'none';
+        loginSuccess.style.display = 'block';
+      }
+
+      function showError(message) {
+        loginForm.style.display = 'none';
+        loginLoading.style.display = 'none';
+        loginSuccess.style.display = 'none';
+        loginError.style.display = 'block';
+        document.getElementById('error-text').textContent = message;
+      }
+
+      function showLoginForm() {
+        loginSuccess.style.display = 'none';
+        loginError.style.display = 'none';
+        loginLoading.style.display = 'none';
+        loginForm.style.display = 'block';
+
+        // Clear form
+        loginForm.reset();
+      }
+
+      // Add event listener for "Try Again" button
+      document.querySelector('#login-error .btn').addEventListener('click', showLoginForm);
+
+      // Auto-focus on Lab Technician ID field
+      document.getElementById('tech-id').focus();
+    });
+  </script>
+
+  <style>
+    /* Lab Technician Login Page Styles */
+    .login-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .login-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #031e46 0%, #6b8cae 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 20px;
+      box-shadow: 0 10px 30px rgba(3, 30, 70, 0.3);
+    }
+
+    .login-header h1 {
+      color: #031e46;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    .login-header p {
+      color: #666;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .login-footer {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .login-footer p {
+      margin: 10px 0;
+      color: #666;
+    }
+
+    .login-footer a {
+      color: #031e46;
+      text-decoration: none;
+    }
+
+    .login-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .success-message, .error-message {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .success-icon, .error-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .success-icon {
+      color: #27ae60;
+    }
+
+    .error-icon {
+      color: #e74c3c;
+    }
+
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .loading-spinner {
+      text-align: center;
+    }
+
+    .loading-spinner i {
+      font-size: 48px;
+      color: #031e46;
+      margin-bottom: 20px;
+    }
+
+    .loading-spinner p {
+      color: #666;
+      font-size: 16px;
+    }
+
+    /* Form enhancements */
+    .form-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #031e46;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .form-actions {
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #031e46 0%, #6b8cae 100%);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(3, 30, 70, 0.3);
+    }
+
+    .btn-secondary {
+      background: #6b7280;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: #4b5563;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .login-header h1 {
+        font-size: 24px;
+      }
+
+      .login-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+      }
+
+      .form-card {
+        padding: 30px 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .login-header h1 {
+        font-size: 20px;
+      }
+
+      .login-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+    }
+  </style>
+</body>
+</html>

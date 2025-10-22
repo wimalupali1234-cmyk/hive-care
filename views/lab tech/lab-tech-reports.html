@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .reports-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #031e46 0%, #6b8cae 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .reports-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .report-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 2px solid #f0f0f0;
+        }
+
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .report-card h3 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .report-card p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .facility-report-card {
+            background: linear-gradient(135deg, #031e46 0%, #6b8cae 100%);
+            color: white;
+        }
+
+        .facility-report-card h3, .facility-report-card p {
+            color: white;
+        }
+
+        .self-report-card {
+            background: linear-gradient(135deg, #6b8cae 0%, #031e46 100%);
+            color: white;
+        }
+
+        .self-report-card h3, .self-report-card p {
+            color: white;
+        }
+
+        .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #5a6268;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #031e46;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .stats-preview {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #031e46;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <?php include 'header.html'; ?>
+
+    <div class="reports-container">
+        <div class="page-header">
+            <h1>Reports Management</h1>
+            <p>Access and generate testing reports</p>
+        </div>
+
+        <div class="breadcrumb">
+            <a href="lab-tech-dashboard.html">Dashboard</a> > <strong>Reports</strong>
+        </div>
+
+        <button class="back-button" onclick="window.location.href='lab-tech-dashboard.html'">
+            ← Back to Dashboard
+        </button>
+
+        <div class="stats-preview">
+            <div class="stat-item">
+                <div class="stat-number" id="totalTests">0</div>
+                <div class="stat-label">Total Tests Today</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="pendingReports">0</div>
+                <div class="stat-label">Pending Reports</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="completedReports">0</div>
+                <div class="stat-label">Completed Reports</div>
+            </div>
+        </div>
+
+        <div class="reports-options">
+            <div class="report-card facility-report-card" onclick="window.location.href='facility-test-reports.html'">
+                <div class="icon">📋</div>
+                <h3>Facility Based Testing Reports</h3>
+                <p>View and generate reports for facility-based HIV testing</p>
+            </div>
+
+            <div class="report-card self-report-card" onclick="window.location.href='self-test-reports.html'">
+                <div class="icon">📊</div>
+                <h3>Self Testing Reports</h3>
+                <p>View and generate reports for self-testing programs</p>
+            </div>
+        </div>
+    </div>
+
+    <?php include 'footer.html'; ?>
+
+    <script>
+        // In a real application, this would fetch from the database
+        // For now, using sample data
+        document.getElementById('totalTests').textContent = '24';
+        document.getElementById('pendingReports').textContent = '3';
+        document.getElementById('completedReports').textContent = '21';
+    </script>
+</body>
+</html>

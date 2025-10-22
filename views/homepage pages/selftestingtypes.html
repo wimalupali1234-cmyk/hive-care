@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self Testing Types - HIV Support Portal</title>
+  <meta name="description" content="Learn about different types of HIV self-testing including oral fluid, finger prick, and dried blood spot testing.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-heartbeat"></i> HIVeCare</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button class="auth-btn login-btn">Login</button>
+        <button class="auth-btn register-btn">Register</button>
+      </div>
+      <div class="language-switcher">
+        <select id="language-select" onchange="changeLanguage(this.value)">
+          <option value="en" selected>English</option>
+          <option value="si">සිංහල (Sinhala)</option>
+        </select>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: What is Self Testing -->
+    <section class="facility-section main-section">
+      <div class="container">
+        <div class="facility-content">
+          <div class="facility-image-box">
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Self Testing" />
+          </div>
+          <div class="facility-description-box">
+            <h1 class="facility-title">What is Self Testing?</h1>
+            <p>Self testing refers to HIV tests that you can perform in the privacy of your own home. These tests are designed to be simple, accurate, and provide results within minutes. Self testing empowers individuals to take control of their health while maintaining complete privacy.</p>
+            <p>Self testing kits are available through our portal and come with detailed instructions, support resources, and access to counseling services if needed. All tests are FDA-approved and provide reliable results when used correctly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Oral Fluid Based Testing -->
+    <section class="facility-section">
+      <div class="container">
+        <div class="facility-content">
+          <div class="facility-image-box">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Oral Fluid Testing" />
+          </div>
+          <div class="facility-description-box">
+            <h2>Oral Fluid Based Testing</h2>
+            <p><strong>What it is:</strong> Oral fluid-based HIV testing is a non-invasive and convenient method used to detect antibodies to HIV in a person’s saliva. It provides a reliable alternative to blood-based testing, offering a simpler and more comfortable experience for individuals being tested. This approach is widely used in both clinical and community settings due to its ease of collection, minimal risk of biohazard exposure, and the ability to deliver quick results. It plays a significant role in expanding access to HIV screening, especially in outreach and self-testing scenarios.</p>
+            
+            <div class="test-button-container">
+              <button class="btn btn-primary test-guide-btn" onclick="window.location.href='oralfluidtestinstructions.html'">How to Perform Oral Fluid Test</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Finger Prick Blood Based Self Testing -->
+    <section class="facility-section">
+      <div class="container">
+        <div class="facility-content">
+          <div class="facility-image-box">
+            <img src="https://images.unsplash.com/photo-1576669802276-4f7cb9f7b53b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Finger Prick Testing" />
+          </div>
+          <div class="facility-description-box">
+            <h2>Finger Prick Blood Based Self Testing</h2>
+            <p><strong>What it is:</strong> Finger prick blood-based HIV self-testing is a widely accepted approach that enables individuals to privately check their HIV status using a small blood sample. It is known for its high accuracy and is often included in approved self-testing kits for personal use. This form of testing empowers people to take proactive steps toward their health, especially those who may be hesitant to visit traditional healthcare settings. It plays a key role in early detection and timely linkage to care, contributing to broader public health efforts in HIV prevention and control.</p>
+            <div class="test-button-container">
+              <button class="btn btn-primary test-guide-btn" onclick="window.location.href='fingerpricktestinstructions.html'">How to Perform Finger Prick Test</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Dried Blood Spot Testing -->
+    <section class="facility-section">
+      <div class="container">
+        <div class="facility-content">
+          <div class="facility-image-box">
+            <img src="https://images.unsplash.com/photo-1514672013381-c6d0df1c8b18?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Dried Blood Spot Testing" />
+          </div>
+          <div class="facility-description-box">
+            <h2>Dried Blood Spot Testing</h2>
+            <p><strong>What it is:</strong> Dried blood spot (DBS) testing for HIV is a reliable and widely used method that involves analyzing small samples of blood collected on specialized filter paper. It is particularly useful in remote or resource-limited settings due to its ease of transport, long-term stability, and minimal storage requirements. DBS testing supports large-scale screening and surveillance programs and is often used for confirmatory testing, early infant diagnosis, and monitoring of HIV treatment. Its durability and adaptability make it a valuable tool in expanding HIV testing access across diverse populations.</p>
+            <div class="test-button-container">
+              <button class="btn btn-primary test-guide-btn" onclick="window.location.href='driedbloodspottestinstructions.html'">How to Perform Dried Blood Spot Test</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-heartbeat"></i> HIV Support Portal</h3>
+          <p>Providing confidential support and resources for people affected by HIV. Your privacy and well-being are our top priorities.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="testing.html">Testing Centers</a></li>
+            <li><a href="#">Support Groups</a></li>
+            <li><a href="#">Educational Materials</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> 1-800-HIV-HELP</li>
+            <li><i class="fas fa-envelope"></i> support@hivportal.org</li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Health St, City</li>
+            <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 HIV Support Portal. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oral Fluid Test Instructions - HIV Support Portal</title>
+  <meta name="description" content="Step-by-step instructions for performing an oral fluid HIV self-test at home.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-heartbeat"></i> HIVeCare</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button class="auth-btn login-btn">Login</button>
+        <button class="auth-btn register-btn">Register</button>
+      </div>
+      <div class="language-switcher">
+        <select id="language-select" onchange="changeLanguage(this.value)">
+          <option value="en" selected>English</option>
+          <option value="si">සිංහල (Sinhala)</option>
+        </select>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="instructions-page">
+    <div class="container">
+      <div class="back-button-container">
+        <a href="selftestingtypes.html" class="back-btn">Back to Self Testing</a>
+      </div>
+
+      <div class="instructions-header">
+        <h1>Oral Fluid HIV Test Instructions</h1>
+        <p>Follow these step-by-step instructions to perform your oral fluid HIV test safely and accurately. The entire process takes about 30-40 minutes.</p>
+      </div>
+
+      <div class="instructions-list">
+        <div class="instruction-item">
+          <div class="instruction-number">1</div>
+          <div class="instruction-content">
+            <h3>Receive and Check Your Test Kit</h3>
+            <p>When you receive your oral fluid HIV test kit, carefully check that all components are included:</p>
+            <ul>
+              <li>Test device in sealed pouch</li>
+              <li>Oral fluid collection swab</li>
+              <li>Test tube with developer solution</li>
+              <li>Instructions booklet</li>
+              <li>Timer (or use your phone)</li>
+            </ul>
+            <p>Ensure the kit is not expired and all packaging is intact.</p>
+          </div>
+        </div>
+
+        <div class="instruction-item">
+          <div class="instruction-number">2</div>
+          <div class="instruction-content">
+            <h3>Prepare for Testing</h3>
+            <p>Before starting the test:</p>
+            <ul>
+              <li>Wash your hands thoroughly with soap and water</li>
+              <li>Do not eat, drink, smoke, or brush your teeth for 30 minutes before testing</li>
+              <li>Find a clean, flat surface to work on</li>
+              <li>Ensure good lighting</li>
+              <li>Read all instructions carefully</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="instruction-item">
+          <div class="instruction-number">3</div>
+          <div class="instruction-content">
+            <h3>Collect Oral Fluid Sample</h3>
+            <p>Remove the oral fluid collection swab from its packaging:</p>
+            <ul>
+              <li>Hold the swab by the handle, avoid touching the pad</li>
+              <li>Gently rub the swab pad against your upper gum line</li>
+              <li>Then rub against your lower gum line</li>
+              <li>Repeat this process for 2-3 times to ensure adequate sample collection</li>
+              <li>The entire collection should take about 2 minutes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="instruction-item">
+          <div class="instruction-number">4</div>
+          <div class="instruction-content">
+            <h3>Process the Sample</h3>
+            <p>After collecting the oral fluid:</p>
+            <ul>
+              <li>Insert the swab into the test tube containing the developer solution</li>
+              <li>Ensure the swab pad is fully immersed in the solution</li>
+              <li>Wait for exactly 1 minute while the swab is in the solution</li>
+              <li>Remove and discard the swab safely</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="instruction-item">
+          <div class="instruction-number">5</div>
+          <div class="instruction-content">
+            <h3>Perform the Test</h3>
+            <p>Remove the test device from its sealed pouch:</p>
+            <ul>
+              <li>Place the test device on a flat surface</li>
+              <li>Using the dropper cap, add exactly 3 drops of the processed solution into the sample well</li>
+              <li>Start your timer immediately after adding the drops</li>
+              <li>Do not move or disturb the test device</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="instruction-item">
+          <div class="instruction-number">6</div>
+          <div class="instruction-content">
+            <h3>Wait for Results</h3>
+            <p>Wait exactly 20 minutes for results:</p>
+            <ul>
+              <li>Set a timer for 20 minutes</li>
+              <li>Do not read results before 20 minutes</li>
+              <li>Do not read results after 40 minutes</li>
+              <li>The test window will show colored lines during this time</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="instruction-item">
+          <div class="instruction-number">7</div>
+          <div class="instruction-content">
+            <h3>Read Your Results</h3>
+            <p>After exactly 20 minutes, read your results:</p>
+            <ul>
+              <li><strong>Negative:</strong> Only one line appears (control line)</li>
+              <li><strong>Positive:</strong> Two lines appear (control and test lines)</li>
+              <li><strong>Invalid:</strong> No lines appear or test line appears without control line</li>
+            </ul>
+            <p>Any line, no matter how faint, should be considered a line.</p>
+          </div>
+        </div>
+
+        <div class="warning-box">
+          <h4>Important Note</h4>
+          <p>If your result is positive or invalid, please contact a healthcare provider immediately. A positive self-test result needs to be confirmed with a laboratory test. If you need support interpreting results, call our helpline at 1-800-HIV-HELP.</p>
+        </div>
+
+        <div class="instruction-item">
+          <div class="instruction-number">8</div>
+          <div class="instruction-content">
+            <h3>Dispose of Materials Safely</h3>
+            <p>After completing the test:</p>
+            <ul>
+              <li>Place all used materials in the provided disposal bag</li>
+              <li>Seal the bag securely</li>
+              <li>Dispose of in regular household waste</li>
+              <li>Wash your hands thoroughly</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="instruction-item">
+          <div class="instruction-number">9</div>
+          <div class="instruction-content">
+            <h3>Record and Follow Up</h3>
+            <p>Document your test and next steps:</p>
+            <ul>
+              <li>Record the date and result of your test</li>
+              <li>If negative, consider regular testing based on your risk factors</li>
+              <li>If positive, seek confirmatory testing immediately</li>
+              <li>Contact our support services for counseling and guidance</li>
+              <li>Follow up with healthcare providers as recommended</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-heartbeat"></i> HIV Support Portal</h3>
+          <p>Providing confidential support and resources for people affected by HIV. Your privacy and well-being are our top priorities.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="testing.html">Testing Centers</a></li>
+            <li><a href="#">Support Groups</a></li>
+            <li><a href="#">Educational Materials</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> 1-800-HIV-HELP</li>
+            <li><i class="fas fa-envelope"></i> support@hivportal.org</li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Health St, City</li>
+            <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 HIV Support Portal. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

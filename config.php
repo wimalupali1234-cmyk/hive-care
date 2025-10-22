@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";
-$db_name = "hivecare_db";
+$db_name = "hiv";
 $username = "root"; // default
 $password = "";     // default
 

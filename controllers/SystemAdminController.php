@@ -16,13 +16,13 @@ class SystemAdminController {
     // ---------------- Dashboard ----------------
     public function dashboard(){
         $data = [
-            'total_hospitals' => $this->model->getHospitalCount(),
-            'total_doctors' => $this->model->getDoctorCount(),
-            'total_counsellors' => $this->model->getCounsellorCount(),
-            'total_testkits' => $this->model->getTestKitCount(),
-            'total_appointments' => $this->model->getAppointmentCount(),
+            'total_hospitals' => $this->model->getHospitalCount() ?? 0,
+            'total_doctors' => $this->model->getDoctorCount() ?? 0,
+            'total_counsellors' => $this->model->getCounsellorCount() ?? 0,
+            'total_testkits' => $this->model->getTestKitCount() ?? 0,
+            'total_appointments' => $this->model->getAppointmentCount() ?? 0,
             // view expects $dashAnnouncements
-            'dashAnnouncements' => $this->model->getUpcomingAnnouncements()
+            'dashAnnouncements' => $this->model->getUpcomingAnnouncements() ?? []
         ];
 
         // export array keys as variables for the view (e.g. $total_hospitals)
@@ -63,9 +63,6 @@ class SystemAdminController {
         $testKitModel = new TestKit($this->conn);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add'])) {
-<<<<<<< HEAD
-            $testKitModel->add($_POST['name'], $_POST['type'], $_POST['quantity'], $_POST['expiry_date']);
-=======
             $data = [
                 'testkit_name' => $_POST['testkit_name'],
                 'test_type' => $_POST['test_type'],
@@ -79,7 +76,6 @@ class SystemAdminController {
                 'supplier_name' => $_POST['supplier_name'] ?? null
             ];
             $testKitModel->add($data);
->>>>>>> origin/main
             header("Location: index.php?action=manageTestKits");
             exit;
         }
@@ -95,16 +91,11 @@ class SystemAdminController {
 
         $kits = $testKitModel->getAll($filter, $search);
         $total_kits = $testKitModel->countTotal();
-<<<<<<< HEAD
-=======
         $counts = $testKitModel->getCounts();
->>>>>>> origin/main
 
         include __DIR__ . '/../views/system_admin/manageTestKits.php';
     }
 
-<<<<<<< HEAD
-=======
     // ---------------- Edit Test Kit ----------------
     public function editTestKit() {
         if (!isset($_GET['id'])) {
@@ -145,7 +136,6 @@ class SystemAdminController {
         include __DIR__ . '/../views/system_admin/editTestKitView.php';
     }
 
->>>>>>> origin/main
     // ---------------- Manage Content ----------------
     public function manageContent() {
         if (isset($_POST['upload'])) {

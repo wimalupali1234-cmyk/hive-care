@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Manage HIV Content - HIVeCare</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/HIVe/public/css/style.css">
   <link rel="stylesheet" href="style.css">
   <style>
     body { background:#f9fafb; font-family:'Poppins',sans-serif; color:#333; margin:0; }

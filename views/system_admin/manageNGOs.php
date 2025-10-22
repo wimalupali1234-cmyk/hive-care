@@ -4,11 +4,8 @@
   <meta charset="UTF-8">
   <title>Manage NGOs - HIVeCare</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<<<<<<< HEAD
-  <link rel="stylesheet" href="/HIVE/public/css/style.css">
-=======
-  <link rel="stylesheet" href="/HIV/systemadmin/public/css/style.css">
->>>>>>> origin/main
+  <link rel="stylesheet" href="/HIVe/public/css/style.css">
+  <link rel="stylesheet" href="../../public/css/styles.css">
 </head>
 <body>
 <header class="header">
@@ -87,11 +84,7 @@
                 <?php } elseif($row['status'] == 'Inactive'){ ?>
                   <a href="index.php?action=manageNGOs&activate=<?= $row['id'] ?>" class="btn-activate"><i class="fas fa-check-circle"></i> Activate</a>
                 <?php } ?>
-<<<<<<< HEAD
                 <a href="editNGO.php?id=<?= $row['id'] ?>" class="btn-edit"><i class="fas fa-edit"></i> Edit</a>
-=======
-                <a href="index.php?action=editNGO&id=<?= $row['id'] ?>" class="btn-edit"><i class="fas fa-edit"></i> Edit</a>
->>>>>>> origin/main
                 <a href="index.php?action=manageNGOs&delete=<?= $row['id'] ?>" onclick="return confirm('Delete this NGO?')" class="btn-delete"><i class="fas fa-trash"></i> Delete</a>
               </div>
             </div>

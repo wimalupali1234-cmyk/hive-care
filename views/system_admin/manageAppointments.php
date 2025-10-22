@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Manage Appointments - HIVeCare</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/HIVe/public/css/style.css">
   <link rel="stylesheet" href="/HIV/systemadmin/public/css/style.css">
 </head>
 <body>
@@ -72,8 +73,10 @@
     <?php else: ?>
       <div class="empty-note">No appointments found.</div>
     <?php endif; ?>
-  </div>
-
 </div>
+
+<script src="/HIVe/public/js/dashboard.js"></script>
+
 </body>
+
 </html>

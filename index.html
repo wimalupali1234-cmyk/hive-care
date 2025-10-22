@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HIV Support Portal - Your Safe Space for HIV Support & Resources</title>
   <meta name="description" content="Access confidential HIV testing, treatment information, counseling services, and educational resources in a stigma-free environment.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="public/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -19,14 +19,14 @@
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="help.html">Help</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="views/homepage pages/about.html">About</a></li>
+          <li><a href="views/homepage pages/help.html">Help</a></li>
+          <li><a href="views/homepage pages/contact.html">Contact</a></li>
         </ul>
       </nav>
       <div class="auth-buttons">
         <button class="auth-btn login-btn">Login</button>
-        <button class="auth-btn register-btn">Register</button>
+        <a href="views/homepage pages/register.html"><button class="auth-btn register-btn">Register</button></a>
       </div>
       <div class="language-switcher">
         <select id="language-select" onchange="changeLanguage(this.value)">
@@ -67,7 +67,7 @@
       <p class="section-description">Comprehensive support services designed to meet your needs with privacy and care.</p>
       <div class="category-grid">
         <!-- Testing Card -->
-        <a href="testing.html" class="category-card" style="text-decoration: none; color: inherit; display: block;">
+        <a href="views/homepage pages/testing.html" class="category-card" style="text-decoration: none; color: inherit; display: block;">
           <div class="card-icon">
             <i class="fas fa-vial"></i>
           </div>
@@ -76,16 +76,16 @@
         </a>
 
         <!-- Consultation Card -->
-        <div class="category-card">
+        <a href="views/homepage pages/appointment-booking.html" class="category-card" style="text-decoration: none; color: inherit; display: block;">
           <div class="card-icon">
             <i class="fas fa-user-md"></i>
           </div>
           <h3>Medical Consultation</h3>
           <p>Secure online medical consultations with HIV specialists. Your privacy is our top priority with encrypted video calls.</p>
-        </div>
+        </a>
 
         <!-- Medication Card -->
-        <a href="preventivemedication.html" class="category-card" style="text-decoration: none; color: inherit; display: block;">
+        <a href="views/homepage pages/preventivemedication.html" class="category-card" style="text-decoration: none; color: inherit; display: block;">
         
           <div class="card-icon">
             <i class="fas fa-pills"></i>
@@ -95,13 +95,13 @@
         </a>
 
         <!-- Counseling Card -->
-        <div class="category-card">
+        <a href="views/homepage pages/contact.html" class="category-card" style="text-decoration: none; color: inherit; display: block;">
           <div class="card-icon">
             <i class="fas fa-hands-helping"></i>
           </div>
           <h3>Counseling & Support</h3>
           <p>Emotional support services available 24/7. Talk to a counselor or join a support group. You're not alone.</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -380,9 +380,9 @@
           <h4>Quick Links</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="help.html">Help Center</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="views/homepage pages/about.html">About Us</a></li>
+            <li><a href="views/homepage pages/help.html">Help Center</a></li>
+            <li><a href="views/homepage pages/contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -410,6 +410,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="public/script.js"></script>
 </body>
 </html>

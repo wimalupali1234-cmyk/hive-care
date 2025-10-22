@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Order Test Kit - HIVeCare</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../../public/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -46,7 +46,7 @@
         <p>Please fill in all the required information to order your self-test kit</p>
       </div>
 
-      <form class="order-form" id="orderForm" action="orderselftestkit-handler.php" method="POST">
+      <form class="order-form" id="orderForm">
         <!-- Test Kit Type Selection -->
         <div class="form-section">
           <h2><i class="fas fa-box"></i> Select Test Kit Type</h2>
@@ -223,7 +223,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="../../public/script.js"></script>
   <script>
     // Collection points data by district (using hospitals as collection points)
     const collectionPointsByDistrict = {
@@ -409,6 +409,37 @@
         }
       });
 
+      // Form submission - redirect to success page with form data
+      document.getElementById('orderForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Get form data
+        const kitType = document.querySelector('input[name="kit-type"]:checked')?.value;
+        const accountNumber = document.getElementById('account-number').value;
+        const district = document.getElementById('district').value;
+        const collectionPoint = document.getElementById('collection-point').value;
+        const deliveryAddress = document.getElementById('delivery-address').value;
+        const date = document.getElementById('collection-date').value;
+        const time = document.getElementById('collection-time').value;
+
+        // Validate required fields
+        if (!kitType || !accountNumber || !district || !collectionPoint || !deliveryAddress || !date || !time) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+
+        // Construct URL parameters for the success page
+        const params = new URLSearchParams({
+          profile_id: accountNumber,
+          kit_type: kitType,
+          collection_point: collectionPoint,
+          date: date,
+          time: time
+        });
+
+        // Redirect to the success page with parameters
+        window.location.href = 'orderselftestkit-success.html?' + params.toString();
+      });
 
     });
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book Appointment - HIVeCare</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../../public/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -265,7 +265,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="../public/script.js"></script>
   <script>
     // Hospital data by district
     const hospitalsByDistrict = {
@@ -453,7 +453,7 @@
         }
       });
 
-      // Form submission - using traditional PHP form handling
+      // Form submission - redirect to success page with form data
       document.getElementById('appointmentForm').addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -471,38 +471,17 @@
           return;
         }
 
-        // Create a temporary form to submit
-        const tempForm = document.createElement('form');
-        tempForm.method = 'POST';
-        tempForm.action = 'appointment-handler.php';
-        tempForm.style.display = 'none';
-
-        // Add form fields
-        const fields = [
-          { name: 'test-type', value: testType },
-          { name: 'account-number', value: accountNumber },
-          { name: 'district', value: district },
-          { name: 'hospital', value: hospital },
-          { name: 'appointment-date', value: date },
-          { name: 'time-slot', value: timeSlot }
-        ];
-
-        fields.forEach(field => {
-          const input = document.createElement('input');
-          input.type = 'hidden';
-          input.name = field.name;
-          input.value = field.value;
-          tempForm.appendChild(input);
+        // Construct URL parameters for the success page
+        const params = new URLSearchParams({
+          test_type: testType,
+          profile_id: accountNumber,
+          hospital: hospital,
+          date: date,
+          time: timeSlot
         });
 
-        document.body.appendChild(tempForm);
-        tempForm.submit();
-
-        // Clean up
-        document.body.removeChild(tempForm);
-
-        // For debugging - you can temporarily change this to test-form-submission.php
-        // tempForm.action = 'test-form-submission.php';
+        // Redirect to the success page with parameters
+        window.location.href = 'appointment-success.html?' + params.toString();
       });
 
       // Check for URL parameters (success/error messages)

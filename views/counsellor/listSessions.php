@@ -1,62 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upcoming Counselling Sessions</title>
-    <link rel="stylesheet" href="/HIVE/public/css/counsellor-styles.css">
-</head>
-<body>
-    <header>
-        <h1>Upcoming Counselling Sessions</h1>
-        <nav>
-            <a href="index.php?action=counsellorEditAvailability">Edit Availability</a>
-            <a href="index.php?action=counsellorBlockDates">Block Dates</a>
-        </nav>
-    </header>
+<?php
+require_once __DIR__ . '/header.php';
+$sessions = isset($sessions) ? $sessions : array();
 
-    <main>
-        <section class="session-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Session Code</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Mode</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php if (!empty($sessions)): ?>
-                        <?php foreach ($sessions as $session): ?>
-                            <tr>
-                                <td><?= htmlspecialchars($session['session_code']) ?></td>
-                                <td><?= htmlspecialchars($session['date']) ?></td>
-                                <td><?= htmlspecialchars($session['time']) ?></td>
-                                <td><?= htmlspecialchars($session['mode']) ?></td>
-                                <td><?= htmlspecialchars($session['status']) ?></td>
-                                <td>
-                                    <a href="index.php?action=counsellorSaveNotes&sessionId=<?= $session['id'] ?>">Add/Edit Notes</a> |
-                                    <a href="index.php?action=counsellorUpdateStatus&sessionId=<?= $session['id'] ?>&status=Completed">Mark Completed</a> |
-                                    <a href="index.php?action=counsellorUpdateStatus&sessionId=<?= $session['id'] ?>&status=Missed">Mark Missed</a> |
-                                    <a href="index.php?action=counsellorUpdateStatus&sessionId=<?= $session['id'] ?>&status=Rescheduled">Reschedule</a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <tr>
-                            <td colspan="6">No upcoming sessions found.</td>
-                        </tr>
-                    <?php endif; ?>
-                </tbody>
-            </table>
-        </section>
-    </main>
+$total_upcoming = count($sessions);
+$sessions_this_month = 0;
+$pending_count = 0;
+$cancelled_count = 0;
+foreach ($sessions as $s) {
+    $sdate = isset($s['date']) ? $s['date'] : null;
+    $status = isset($s['status']) ? strtolower($s['status']) : '';
+    if ($sdate && date('Y-m', strtotime($sdate)) === date('Y-m')) {
+        $sessions_this_month++;
+    }
+    if (strpos($status, 'pending') !== false) $pending_count++;
+    if (strpos($status, 'cancel') !== false) $cancelled_count++;
+}
+?>
 
-    <footer>
-        <p>&copy; 2025 Counsellor Dashboard</p>
-    </footer>
-</body>
-</html>
+<main class="container">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Counsellor Dashboard</h1>
+        <p>Manage sessions, notes and availability from here.</p>
+        <div class="hero-stats">
+          <div class="stat-item"><span class="stat-number"><?php echo (int)$total_upcoming; ?></span><span class="stat-label">Upcoming</span></div>
+          <div class="stat-item"><span class="stat-number"><?php echo (int)$sessions_this_month; ?></span><span class="stat-label">This Month</span></div>
+          <div class="stat-item"><span class="stat-number"><?php echo (int)$pending_count; ?></span><span class="stat-label">Pending</span></div>
+          <div class="stat-item"><span class="stat-number"><?php echo (int)$cancelled_count; ?></span><span class="stat-label">Cancelled</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories">
+    <div class="container">
+      <h2>Quick Actions</h2>
+      <div class="category-grid">
+        <a href="index.php?action=counsellorListSessions" class="category-card">
+          <div class="card-icon"><i class="fas fa-calendar-check"></i></div>
+          <h3>My Sessions</h3>
+          <p>View and manage your upcoming counselling sessions.</p>
+        </a>
+
+        <a href="index.php?action=counsellorEditAvailability" class="category-card">
+          <div class="card-icon"><i class="fas fa-edit"></i></div>
+          <h3>Edit Availability</h3>
+          <p>Update your available time slots for clients to book.</p>
+        </a>
+
+        <a href="index.php?action=counsellorBlockDates" class="category-card">
+          <div class="card-icon"><i class="fas fa-ban"></i></div>
+          <h3>Block Dates</h3>
+          <p>Block days you are not available for counselling.</p>
+        </a>
+
+        <a href="index.php?action=counsellorUserHistory" class="category-card">
+          <div class="card-icon"><i class="fas fa-user-injured"></i></div>
+          <h3>Client History</h3>
+          <p>View past sessions and notes for a client.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<?php require_once __DIR__ . '/footer.php'; ?>

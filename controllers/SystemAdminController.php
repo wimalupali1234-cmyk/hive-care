@@ -63,9 +63,7 @@ class SystemAdminController {
         $testKitModel = new TestKit($this->conn);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add'])) {
-<<<<<<< HEAD
             $testKitModel->add($_POST['name'], $_POST['type'], $_POST['quantity'], $_POST['expiry_date']);
-=======
             $data = [
                 'testkit_name' => $_POST['testkit_name'],
                 'test_type' => $_POST['test_type'],
@@ -79,7 +77,6 @@ class SystemAdminController {
                 'supplier_name' => $_POST['supplier_name'] ?? null
             ];
             $testKitModel->add($data);
->>>>>>> origin/main
             header("Location: index.php?action=manageTestKits");
             exit;
         }
@@ -95,16 +92,11 @@ class SystemAdminController {
 
         $kits = $testKitModel->getAll($filter, $search);
         $total_kits = $testKitModel->countTotal();
-<<<<<<< HEAD
-=======
         $counts = $testKitModel->getCounts();
->>>>>>> origin/main
 
         include __DIR__ . '/../views/system_admin/manageTestKits.php';
     }
 
-<<<<<<< HEAD
-=======
     // ---------------- Edit Test Kit ----------------
     public function editTestKit() {
         if (!isset($_GET['id'])) {
@@ -145,7 +137,6 @@ class SystemAdminController {
         include __DIR__ . '/../views/system_admin/editTestKitView.php';
     }
 
->>>>>>> origin/main
     // ---------------- Manage Content ----------------
     public function manageContent() {
         if (isset($_POST['upload'])) {

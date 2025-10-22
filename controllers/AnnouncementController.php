@@ -34,8 +34,6 @@ class AnnouncementController {
         $announcements = $this->model->getAll();
     require __DIR__ . '/../views/system_admin/manageAnnouncements.php';
     }
-<<<<<<< HEAD
-=======
 
     public function edit() {
         if (!isset($_GET['id'])) {
@@ -67,5 +65,4 @@ class AnnouncementController {
 
         require __DIR__ . '/../views/system_admin/editAnnouncementView.php';
     }
->>>>>>> origin/main
 }

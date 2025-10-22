@@ -1,39 +1,41 @@
 <?php
 // expects $userInfo (assoc) and $history (array)
+require_once __DIR__ . '/header.php';
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>User History for Code <?= htmlspecialchars($userInfo['user_code']) ?></title>
-</head>
-<body>
-    <h1>History for User Code: <?= htmlspecialchars($userInfo['user_code']) ?></h1>
+<main class="container">
+    <section class="content-section">
+        <div class="section-header">
+            <h2>History for User Code: <?php echo htmlspecialchars(isset($userInfo['user_code']) ? $userInfo['user_code'] : ''); ?></h2>
+        </div>
 
-    <p>Demographics: Gender: <?= htmlspecialchars($userInfo['gender']) ?> | Age Group: <?= htmlspecialchars($userInfo['age_group']) ?></p>
+        <p class="muted">Demographics: Gender: <?php echo htmlspecialchars(isset($userInfo['gender']) ? $userInfo['gender'] : ''); ?> | Age Group: <?php echo htmlspecialchars(isset($userInfo['age_group']) ? $userInfo['age_group'] : ''); ?></p>
 
-    <h2>Previous Sessions</h2>
-    <table border="1" cellpadding="8" cellspacing="0">
-        <thead>
-            <tr><th>Date</th><th>Time</th><th>Mode</th><th>Status</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-        <?php if (!empty($history)): ?>
-            <?php foreach ($history as $h): ?>
-                <tr>
-                    <td><?= htmlspecialchars($h['date']) ?></td>
-                    <td><?= htmlspecialchars($h['time']) ?></td>
-                    <td><?= htmlspecialchars($h['mode']) ?></td>
-                    <td><?= htmlspecialchars($h['status']) ?></td>
-                    <td><?= nl2br(htmlspecialchars($h['notes'])) ?></td>
-                </tr>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <tr><td colspan="5">No previous sessions found.</td></tr>
-        <?php endif; ?>
-        </tbody>
-    </table>
+        <h3>Previous Sessions</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr><th>Date</th><th>Time</th><th>Mode</th><th>Status</th><th>Notes</th></tr>
+                </thead>
+                <tbody>
+                <?php if (!empty($history)): ?>
+                        <?php foreach ($history as $h): ?>
+                                <tr>
+                                        <td><?php echo htmlspecialchars(isset($h['date']) ? $h['date'] : ''); ?></td>
+                                        <td><?php echo htmlspecialchars(isset($h['time']) ? $h['time'] : ''); ?></td>
+                                        <td><?php echo htmlspecialchars(isset($h['mode']) ? $h['mode'] : ''); ?></td>
+                                        <td><?php echo htmlspecialchars(isset($h['status']) ? $h['status'] : ''); ?></td>
+                                        <td><?php echo nl2br(htmlspecialchars(isset($h['notes']) ? $h['notes'] : '')); ?></td>
+                                </tr>
+                        <?php endforeach; ?>
+                <?php else: ?>
+                        <tr><td colspan="5">No previous sessions found.</td></tr>
+                <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
 
-    <p><a href="index.php?action=counsellorListSessions">Back to Sessions</a></p>
-</body>
-</html>
+        <p><a href="index.php?action=counsellorListSessions" class="btn btn-warning">Back to Dashboard</a></p>
+    </section>
+</main>
+
+<?php require_once __DIR__ . '/footer.php'; ?>

@@ -1,36 +1,33 @@
 <?php
-// expects maybe data like $availability (array) to pre‐fill form, if you have it
+// expects maybe data like $availability (array) to pre-fill form, if you have it
+require_once __DIR__ . '/header.php';
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Availability</title>
-</head>
-<body>
-    <h1>Edit My Availability</h1>
-
-    <form method="post" action="index.php?action=counsellorEditAvailability">
-        <p>Add or update your available time slots:</p>
-
-        <!-- Example: allow multiple lines. You may use JS to add rows dynamically -->
-        <div id="slots">
-            <div class="slot">
-                Date: <input type="date" name="availability[0][date]" required>
-                Start: <input type="time" name="availability[0][start_time]" required>
-                End:   <input type="time" name="availability[0][end_time]" required>
-            </div>
-            <div class="slot">
-                Date: <input type="date" name="availability[1][date]">
-                Start: <input type="time" name="availability[1][start_time]">
-                End:   <input type="time" name="availability[1][end_time]">
-            </div>
-            <!-- add more as needed -->
+<main class="container">
+    <section class="content-section">
+        <div class="section-header">
+            <h2>Edit My Availability</h2>
         </div>
 
-        <button type="submit" name="update">Update Availability</button>
-    </form>
+        <form method="post" action="index.php?action=counsellorEditAvailability">
+            <p>Add or update your available time slots:</p>
 
-    <p><a href="index.php?action=counsellorListSessions">Back to Sessions</a></p>
-</body>
-</html>
+            <div id="slots">
+                <div class="slot">
+                    <label>Date: <input type="date" name="availability[0][date]" required></label>
+                    <label>Start: <input type="time" name="availability[0][start_time]" required></label>
+                    <label>End: <input type="time" name="availability[0][end_time]" required></label>
+                </div>
+                <div class="slot">
+                    <label>Date: <input type="date" name="availability[1][date]"></label>
+                    <label>Start: <input type="time" name="availability[1][start_time]"></label>
+                    <label>End: <input type="time" name="availability[1][end_time]"></label>
+                </div>
+            </div>
+
+            <button type="submit" name="update" class="btn btn-primary">Update Availability</button>
+            <a href="index.php?action=counsellorListSessions" class="btn btn-warning">Back</a>
+        </form>
+    </section>
+</main>
+
+<?php require_once __DIR__ . '/footer.php'; ?>

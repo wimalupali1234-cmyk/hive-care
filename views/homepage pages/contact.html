@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - HIV Support Portal</title>
+  <meta name="description" content="Get in touch with our support team. We're here to help with any questions about HIV testing, treatment, or support services.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-heartbeat"></i> HIV Support Portal</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="#" class="active">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="language-switcher">
+        <select id="language-select">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="si">සිංහල</option>
+        </select>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Contact Hero Section -->
+  <section class="contact-hero">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>We're here to help. Reach out to our support team for confidential assistance with HIV testing, treatment, or any questions you may have.</p>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="contact-content">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="contact-form-section">
+          <h2>Send us a Message</h2>
+          <p>Fill out the form below and we'll get back to you within 24 hours. All information is kept confidential.</p>
+          
+          <form id="contact-form" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First Name *</label>
+                <input type="text" id="first-name" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name *</label>
+                <input type="text" id="last-name" name="lastName" required>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="testing">HIV Testing Information</option>
+                <option value="treatment">Treatment & Medication</option>
+                <option value="counseling">Counseling & Support</option>
+                <option value="education">Educational Resources</option>
+                <option value="technical">Technical Support</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="urgency">Urgency Level</label>
+              <select id="urgency" name="urgency">
+                <option value="low">Low - General inquiry</option>
+                <option value="medium">Medium - Need information soon</option>
+                <option value="high">High - Urgent assistance needed</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" rows="6" required placeholder="Please describe your inquiry or concern..."></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="privacy-agreement" required>
+                <span class="checkmark"></span>
+                I agree to the <a href="privacy.html">Privacy Policy</a> and understand my information will be handled confidentially.
+              </label>
+            </div>
+            
+            <div class="form-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="newsletter-signup">
+                <span class="checkmark"></span>
+                I would like to receive updates about HIV research and resources (optional)
+              </label>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="contact-info-section">
+          <h2>Get in Touch</h2>
+          <p>We offer multiple ways to reach our support team. Choose the method that works best for you.</p>
+          
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="method-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="method-content">
+                <h3>Phone Support</h3>
+                <p><strong>1-800-HIV-HELP</strong></p>
+                <p>Available 24/7 for urgent assistance</p>
+                <span class="status-badge available">Available Now</span>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="method-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="method-content">
+                <h3>Email Support</h3>
+                <p><strong>support@hivportal.org</strong></p>
+                <p>Response within 24 hours</p>
+                <span class="status-badge available">Available</span>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="method-icon">
+                <i class="fas fa-comments"></i>
+              </div>
+              <div class="method-content">
+                <h3>Live Chat</h3>
+                <p><strong>Click the chat button</strong></p>
+                <p>Real-time support during business hours</p>
+                <span class="status-badge available">Available</span>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="method-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="method-content">
+                <h3>Office Location</h3>
+                <p><strong>123 Health Street</strong></p>
+                <p>City, State 12345</p>
+                <span class="status-badge limited">By Appointment</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="emergency-notice">
+            <h3><i class="fas fa-exclamation-triangle"></i> Emergency?</h3>
+            <p>If you're experiencing a medical emergency, please call 911 or go to your nearest emergency room immediately.</p>
+            <p>For urgent HIV-related concerns, call our 24/7 hotline: <strong>1-800-HIV-HELP</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>How quickly will I receive a response?</h3>
+          <p>We aim to respond to all inquiries within 24 hours. Urgent requests are prioritized and typically receive a response within 2-4 hours.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>Is my information kept confidential?</h3>
+          <p>Yes, absolutely. All information shared with us is kept strictly confidential and protected under HIPAA guidelines. We never share your personal information without your explicit consent.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>Can I request anonymous support?</h3>
+          <p>Yes, you can request anonymous support. While we encourage providing contact information for follow-up, we understand the need for privacy and will work with you to ensure your comfort.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>What languages do you support?</h3>
+          <p>We currently offer support in English, Spanish, French, and Sinhala. If you need support in another language, please let us know and we'll do our best to accommodate you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-heartbeat"></i> HIV Support Portal</h3>
+          <p>Providing confidential support and resources for people affected by HIV. Your privacy and well-being are our top priorities.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="testing.html">Testing Centers</a></li>
+            <li><a href="#">Support Groups</a></li>
+            <li><a href="#">Educational Materials</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> 1-800-HIV-HELP</li>
+            <li><i class="fas fa-envelope"></i> support@hivportal.org</li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Health St, City</li>
+            <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 HIV Support Portal. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Live Chat Button -->
+  <button id="live-chat-btn" class="live-chat-btn" aria-label="Live chat support">
+    <i class="fas fa-comment-dots"></i>
+    <span class="chat-tooltip">Need help? Chat with us</span>
+  </button>
+
+  <!-- Accessibility Controls -->
+  <div class="accessibility-controls">
+    <button id="high-contrast-btn" aria-label="Toggle high contrast mode">
+      <i class="fas fa-adjust"></i>
+    </button>
+    <button id="font-size-btn" aria-label="Increase font size">
+      <i class="fas fa-text-height"></i>
+    </button>
+    <button id="screen-reader-btn" aria-label="Screen reader mode">
+      <i class="fas fa-universal-access"></i>
+    </button>
+  </div>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+      <p>We use cookies to enhance your experience and analyze site usage. By continuing to use this site, you consent to our use of cookies. <a href="privacy.html">Learn more</a></p>
+      <div class="cookie-buttons">
+        <button id="accept-cookies" class="btn btn-primary">Accept</button>
+        <button id="decline-cookies" class="btn btn-secondary">Decline</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

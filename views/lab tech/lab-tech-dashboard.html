@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Technician Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+
+        /* Dashboard specific styles */
+        .dashboard-page {
+          padding: 40px 0;
+          min-height: calc(100vh - 200px);
+        }
+
+        .welcome-section {
+          text-align: center;
+          margin-bottom: 50px;
+          padding: 40px;
+          background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+          border-radius: 15px;
+          color: white;
+        }
+
+        .welcome-section h1 {
+          font-size: 2.5rem;
+          margin-bottom: 15px;
+        }
+
+        .welcome-section p {
+          font-size: 1.2rem;
+          opacity: 0.9;
+        }
+
+        .dashboard-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 30px;
+          margin-bottom: 50px;
+        }
+
+        .dashboard-card {
+          background: white;
+          border-radius: 15px;
+          padding: 30px;
+          box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          border: 2px solid transparent;
+        }
+
+        .dashboard-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+          border-color: var(--primary-color);
+        }
+
+        .card-icon {
+          font-size: 48px;
+          color: var(--primary-color);
+          margin-bottom: 20px;
+        }
+
+        .card-content h3 {
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+          color: #333;
+        }
+
+        .card-content p {
+          color: #666;
+          margin-bottom: 20px;
+          line-height: 1.6;
+        }
+
+        .profile-section {
+          margin-top: 50px;
+        }
+
+        .profile-section .form-card {
+          background: white;
+          border-radius: 15px;
+          padding: 30px;
+          box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        .profile-section h2 {
+          color: var(--primary-color);
+          margin-bottom: 30px;
+          text-align: center;
+        }
+
+        .info-grid {
+          display: grid;
+          gap: 20px;
+          margin-bottom: 30px;
+        }
+
+        .info-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px;
+          background: #f8f9fa;
+          border-radius: 8px;
+          border-left: 4px solid var(--primary-color);
+        }
+
+        .info-label {
+          font-weight: 600;
+          color: #333;
+        }
+
+        .info-value {
+          color: #666;
+          text-align: right;
+        }
+
+        .profile-actions {
+          text-align: center;
+        }
+
+        .info-loading {
+          text-align: center;
+          padding: 40px;
+          color: #666;
+        }
+
+        .info-loading i {
+          font-size: 32px;
+          margin-bottom: 15px;
+          color: var(--primary-color);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+          .dashboard-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .info-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+          }
+
+          .info-value {
+            text-align: left;
+          }
+
+          .welcome-section {
+            padding: 30px 20px;
+          }
+
+          .welcome-section h1 {
+            font-size: 2rem;
+          }
+        }
+    </style>
+</head>
+<body>
+    <?php include 'header.html'; ?>
+
+  <main class="dashboard-page">
+    <div class="container">
+      <!-- Welcome Section -->
+      <div class="welcome-section">
+        <h1>Welcome to HIVeCare Lab Technician Portal</h1>
+        <p id="welcome-message">Loading your information...</p>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="dashboard-grid">
+        <div class="dashboard-card">
+          <div class="card-icon">
+            <i class="fas fa-vial"></i>
+          </div>
+          <div class="card-content">
+            <h3>Sample Management</h3>
+            <p>Access and manage HIV test samples for processing</p>
+            <button class="btn btn-primary" onclick="window.location.href='lab-tech-samples.html'">Manage Samples</button>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="card-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <div class="card-content">
+            <h3>Reports & Analytics</h3>
+            <p>View and generate testing reports and statistics</p>
+            <button class="btn btn-primary" onclick="window.location.href='lab-tech-reports.html'">View Reports</button>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="card-icon">
+            <i class="fas fa-flask"></i>
+          </div>
+          <div class="card-content">
+            <h3>Lab Inventory</h3>
+            <p>Manage testing kits and laboratory supplies</p>
+            <button class="btn btn-primary" onclick="window.location.href='#'">Check Inventory</button>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="card-content">
+            <h3>Patient Management</h3>
+            <p>Access patient records and test appointments</p>
+            <button class="btn btn-primary" onclick="window.location.href='#'">View Patients</button>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="card-icon">
+            <i class="fas fa-cog"></i>
+          </div>
+          <div class="card-content">
+            <h3>System Settings</h3>
+            <p>Configure lab preferences and user settings</p>
+            <button class="btn btn-primary" onclick="window.location.href='#'">Settings</button>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="card-icon">
+            <i class="fas fa-question-circle"></i>
+          </div>
+          <div class="card-content">
+            <h3>Help & Support</h3>
+            <p>Get assistance and access documentation</p>
+            <button class="btn btn-primary" onclick="window.location.href='help.html'">Get Help</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Information -->
+      <div class="profile-section">
+        <div class="form-card">
+          <h2>Your Lab Technician Profile</h2>
+          <div class="profile-info" id="profile-info">
+            <div class="info-loading">
+              <i class="fas fa-spinner fa-spin"></i>
+              <p>Loading profile information...</p>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="btn btn-secondary" onclick="editProfile()">Edit Profile</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+    <?php include 'footer.html'; ?>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load lab technician session data
+      const labTechSession = JSON.parse(localStorage.getItem('labTechSession') || '{}');
+
+      if (!labTechSession.tech_id) {
+        // No session found, redirect to login
+        alert('Please login to access your dashboard.');
+        window.location.href = 'lab-tech-login.html';
+        return;
+      }
+
+      // Also check for registration data to display actual user information
+      const registrationData = JSON.parse(localStorage.getItem('labTechRegistrationData') || '{}');
+
+      // Use registration data if available, otherwise fall back to session data
+      const displayData = registrationData.fullName ? registrationData : labTechSession;
+
+      // If no data is available, show demo message
+      if (!displayData.full_name && !displayData.fullName) {
+        document.getElementById('welcome-message').textContent = 'Welcome to Lab Technician Portal! Please complete registration to see your information.';
+      }
+
+      // Display welcome message
+      const welcomeMessage = document.getElementById('welcome-message');
+      const techName = displayData.full_name || displayData.fullName || 'Lab Technician';
+      welcomeMessage.textContent = `Welcome back, ${techName}! Ready to continue your important work in HIV testing and care.`;
+
+      // Display profile information
+      displayProfileInfo(displayData);
+
+      // Set up logout functionality
+      document.querySelector('.login-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        logout();
+      });
+    });
+
+    function displayProfileInfo(displayData) {
+      const profileInfo = document.getElementById('profile-info');
+
+      // Map database fields to display fields
+      const profileFields = {
+        'tech_id': displayData.tech_id || displayData.employee_id || 'N/A',
+        'full_name': displayData.full_name || displayData.full_name || 'N/A',
+        'organization': displayData.organization || displayData.organization || 'N/A',
+        'department': displayData.department || displayData.department || 'N/A',
+        'email': displayData.email || displayData.email || 'N/A',
+        'phone': displayData.phone || displayData.first_contact_no || 'N/A',
+        'location': displayData.location || displayData.org_address || 'N/A',
+        'qualification': displayData.qualification || displayData.qualification || 'N/A'
+      };
+
+      profileInfo.innerHTML = `
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-label">Lab Technician ID:</div>
+            <div class="info-value" style="font-family: monospace; font-weight: bold; color: var(--primary-color);">${profileFields.tech_id}</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Full Name:</div>
+            <div class="info-value">${profileFields.full_name}</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Organization:</div>
+            <div class="info-value">${profileFields.organization}</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Department:</div>
+            <div class="info-value">${profileFields.department}</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Email Address:</div>
+            <div class="info-value">${profileFields.email}</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Contact Number:</div>
+            <div class="info-value">${profileFields.phone}</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Work Location:</div>
+            <div class="info-value">${profileFields.location}</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Qualification:</div>
+            <div class="info-value">${profileFields.qualification}</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Account Status:</div>
+            <div class="info-value" style="color: var(--success-color); font-weight: bold;">
+              <i class="fas fa-check-circle"></i> Active
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function logout() {
+      if (confirm('Are you sure you want to logout?')) {
+        // Clear session data
+        localStorage.removeItem('labTechSession');
+        localStorage.removeItem('labTechRegistrationData');
+
+        // Redirect to home page
+        window.location.href = 'index.html';
+      }
+    }
+
+    function editProfile() {
+      alert('Profile editing feature is coming soon!');
+    }
+  </script>
+</body>
+</html>

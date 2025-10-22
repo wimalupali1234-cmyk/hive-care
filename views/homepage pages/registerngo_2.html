@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab Technician Registration - Account Setup</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-heartbeat"></i> HIVeCare</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+
+
+
+<main class="form-page">
+    <div class="container">
+      <div class="form-card">
+        <div class="step-header">
+          <h2><i class="fas fa-cog"></i> System Account Setup</h2>
+          <p>Step 2 of 2</p>
+        </div>
+
+        <form id="account-setup-form" novalidate>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="username">Username <span style="color:#e74c3c">*</span></label>
+              <input id="username" name="username" type="text" required placeholder="Choose a username" />
+              <small style="color: #666;">Username must be 6-20 characters long</small>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password <span style="color:#e74c3c">*</span></label>
+              <input id="password" name="password" type="password" required placeholder="Create a password" />
+              <small style="color: #666;">Minimum 8 characters with uppercase, lowercase, and numbers</small>
+            </div>
+
+            <div class="form-group">
+              <label for="confirm-password">Confirm Password <span style="color:#e74c3c">*</span></label>
+              <input id="confirm-password" name="confirm-password" type="password" required placeholder="Confirm your password" />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary-outline" onclick="window.location.href='lab-tech-step3.html'">Back</button>
+            <button type="submit" class="btn btn-primary">Complete Registration</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+ <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-heartbeat"></i> HIV Support Portal</h3>
+          <p>Providing confidential support and resources for people affected by HIV.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="testing.html">Testing Centers</a></li>
+            <li><a href="#">Support Groups</a></li>
+            <li><a href="#">Educational Materials</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> 1-800-HIV-HELP</li>
+            <li><i class="fas fa-envelope"></i> support@hivportal.org</li>
+            <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('account-setup-form');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+        if (!username || !password || !confirmPassword) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+
+        if (username.length < 6 || username.length > 20) {
+          alert('Username must be between 6 and 20 characters.');
+          return;
+        }
+
+        if (password.length < 8) {
+          alert('Password must be at least 8 characters long.');
+          return;
+        }
+
+        if (password !== confirmPassword) {
+          alert('Passwords do not match.');
+          return;
+        }
+
+        // Collect all registration data
+        const personalData = JSON.parse(localStorage.getItem('NGOadminData') || '{}');
+        
+        const completeRegistrationData = {
+          ...personalData,
+          username,
+          password,
+          role: 'ngo_admin',
+          registrationDate: new Date().toISOString()
+        };
+
+        // Store complete registration data
+        localStorage.setItem('NGOadminCompleteRegistration', JSON.stringify(completeRegistrationData));
+
+        // Redirect to pending verification page
+        window.location.href = 'NGOadmin-pending-verification.html';
+      });
+    });
+  </script>
+</body>
+</html>

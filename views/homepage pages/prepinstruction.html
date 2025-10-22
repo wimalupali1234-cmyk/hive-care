@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prep Instructions - HIV Support Portal</title>
+  <meta name="description" content="Step-by-step instructions for performing a finger prick HIV self-test at home.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-heartbeat"></i> HIVeCare</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button class="auth-btn login-btn">Login</button>
+        <button class="auth-btn register-btn">Register</button>
+      </div>
+      <div class="language-switcher">
+        <select id="language-select" onchange="changeLanguage(this.value)">
+          <option value="en" selected>English</option>
+          <option value="si">සිංහල (Sinhala)</option>
+        </select>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="instructions-page">
+    <div class="container">
+      <div class="back-button-container">
+        <a href="preventivemedication.html" class="back-btn">Back to Preventive Medication</a>
+      </div>
+
+      <div class="instructions-header">
+        <h1>Instructions for PrEP users</h1>
+        <p>Follow these instructions when using PrEP.</p>
+      </div>
+
+      <div class="instructions-list">
+        <div class="instruction-item">
+          <div class="instruction-number">1</div>
+          <div class="instruction-content">
+            <h2>Guidance for PrEP Users</h2>
+            <ul>
+            <li>Take your PrEP medication at the same time every day.</li>
+            <li>Use reminders like alarms, apps, or a pillbox to avoid missing doses.</li>
+            <li>Do not skip doses, as this lowers PrEP’s effectiveness.</li>
+            <li>Continue using condoms and safe sex practices for full protection.</li>
+            <li>Visit your healthcare provider every 3 months for HIV testing and monitoring.</li>
+            <li>Inform your doctor about any other medicines or supplements you take.</li>  
+            <li>If you miss a dose, take it as soon as you remember unless it is close to your next dose.</li>
+            <li>Do not stop PrEP without consulting your healthcare provider.</li>
+            </ul>
+            <p>Ensure the medicines are not expired.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="instructions-list">
+        <div class="instruction-item">
+          <div class="instruction-number">2</div>
+          <div class="instruction-content">
+              <h2>Possible Side Effects of PrEP</h2>
+                <ul>
+                <li>Mild nausea or stomach upset.</li>
+                <li>Headaches during early use.</li>
+                <li>Small changes in kidney or liver function (monitored by blood tests).</li>
+                <li>Rare, mild decrease in bone strength.</li>
+                </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="instructions-list">
+        <div class="instruction-item">
+          <div class="instruction-content">
+              <h3>Ways to Reduce Side Effects</h3>
+                <ul>
+                <li>Take PrEP with food or at night to reduce stomach discomfort.</li>
+                <li>Drink enough water daily to support kidney health.</li>
+                <li>Never stop the medication without medical advice.</li>
+                <li>Report persistent or unusual side effects to your doctor promptly.</li>
+                </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+
+
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-heartbeat"></i> HIV Support Portal</h3>
+          <p>Providing confidential support and resources for people affected by HIV. Your privacy and well-being are our top priorities.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="testing.html">Testing Centers</a></li>
+            <li><a href="#">Support Groups</a></li>
+            <li><a href="#">Educational Materials</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> 1-800-HIV-HELP</li>
+            <li><i class="fas fa-envelope"></i> support@hivportal.org</li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Health St, City</li>
+            <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 HIV Support Portal. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

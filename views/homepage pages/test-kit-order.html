@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Test Kit - HIVeCare</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-heartbeat"></i> HIVeCare</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button class="auth-btn login-btn">Login</button>
+        <button class="auth-btn register-btn">Register</button>
+      </div>
+      <div class="language-switcher">
+        <select id="language-select" onchange="changeLanguage(this.value)">
+          <option value="en" selected>English</option>
+          <option value="si">සිංහල (Sinhala)</option>
+        </select>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Test Kit Order Section -->
+  <section class="test-kit-order-section">
+    <div class="container">
+      <div class="order-header">
+        <h1>Order Self-Test Kit</h1>
+        <p>Please fill in all the required information to order your self-test kit</p>
+      </div>
+
+      <form class="order-form" id="orderForm" action="orderselftestkit-handler.php" method="POST">
+        <!-- Test Kit Type Selection -->
+        <div class="form-section">
+          <h2><i class="fas fa-box"></i> Select Test Kit Type</h2>
+          <div class="test-kit-grid">
+            <div class="test-kit-card">
+              <input type="radio" id="oral-fluid" name="kit-type" value="oral-fluid" required>
+              <label for="oral-fluid">
+                <div class="kit-icon">
+                  <i class="fas fa-tint"></i>
+                </div>
+                <h3>Oral Fluid Test</h3>
+                <p>Simple mouth swab test for HIV detection</p>
+              </label>
+            </div>
+
+            <div class="test-kit-card">
+              <input type="radio" id="finger-prick" name="kit-type" value="finger-prick" required>
+              <label for="finger-prick">
+                <div class="kit-icon">
+                  <i class="fas fa-hand-paper"></i>
+                </div>
+                <h3>Finger Prick Test</h3>
+                <p>Blood-based test using a small finger prick sample</p>
+              </label>
+            </div>
+
+            <div class="test-kit-card">
+              <input type="radio" id="dried-blood-spot" name="kit-type" value="dried-blood-spot" required>
+              <label for="dried-blood-spot">
+                <div class="kit-icon">
+                  <i class="fas fa-file-medical"></i>
+                </div>
+                <h3>Dried Blood Spot Test</h3>
+                <p>Blood sample dried on special paper for laboratory analysis</p>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Account Information -->
+        <div class="form-section">
+          <h2><i class="fas fa-user-circle"></i> Account Information</h2>
+          <div class="form-group">
+            <label for="account-number">Account Number *</label>
+            <input type="text" id="account-number" name="account-number" required placeholder="Enter your account number">
+          </div>
+        </div>
+
+        <!-- Delivery Location Selection -->
+        <div class="form-section">
+          <h2><i class="fas fa-truck"></i> Delivery Information</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="district">Delivery District *</label>
+              <select id="district" name="district" required>
+                <option value="">Choose your district</option>
+                <option value="colombo">Colombo</option>
+                <option value="gampaha">Gampaha</option>
+                <option value="kalutara">Kalutara</option>
+                <option value="kandy">Kandy</option>
+                <option value="matale">Matale</option>
+                <option value="nuwara-eliya">Nuwara Eliya</option>
+                <option value="galle">Galle</option>
+                <option value="matara">Matara</option>
+                <option value="hambantota">Hambantota</option>
+                <option value="jaffna">Jaffna</option>
+                <option value="kilinochchi">Kilinochchi</option>
+                <option value="mannar">Mannar</option>
+                <option value="vavuniya">Vavuniya</option>
+                <option value="mullaitivu">Mullaitivu</option>
+                <option value="batticaloa">Batticaloa</option>
+                <option value="ampara">Ampara</option>
+                <option value="trincomalee">Trincomalee</option>
+                <option value="kurunegala">Kurunegala</option>
+                <option value="puttalam">Puttalam</option>
+                <option value="anuradhapura">Anuradhapura</option>
+                <option value="polonnaruwa">Polonnaruwa</option>
+                <option value="badulla">Badulla</option>
+                <option value="monaragala">Monaragala</option>
+                <option value="ratnapura">Ratnapura</option>
+                <option value="kegalle">Kegalle</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="collection-point">Collection Point *</label>
+              <select id="collection-point" name="collection-point" required disabled>
+                <option value="">First select a district</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="delivery-address">Delivery Address *</label>
+            <textarea id="delivery-address" name="delivery-address" required placeholder="Enter your complete delivery address including street, house number, and any landmarks"></textarea>
+          </div>
+        </div>
+
+        <!-- Collection Date and Time Selection -->
+        <div class="form-section">
+          <h2><i class="fas fa-calendar-alt"></i> Collection Schedule</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="collection-date">Select Collection Date *</label>
+              <input type="date" id="collection-date" name="collection-date" required min="">
+            </div>
+
+            <div class="form-group">
+              <label for="collection-time">Available Collection Times *</label>
+              <select id="collection-time" name="collection-time" required disabled>
+                <option value="">First select date and collection point</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-section">
+          <button type="submit" class="btn btn-primary order-btn">
+            <i class="fas fa-shopping-cart"></i>
+            Order Test Kit
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-heartbeat"></i> HIV Support Portal</h3>
+          <p>Providing confidential support and resources for people affected by HIV. Your privacy and well-being are our top priorities.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="testing.html">Testing Centers</a></li>
+            <li><a href="#">Support Groups</a></li>
+            <li><a href="#">Educational Materials</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> 1-800-HIV-HELP</li>
+            <li><i class="fas fa-envelope"></i> support@hivportal.org</li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Health St, City</li>
+            <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 HIV Support Portal. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Collection points data by district (using hospitals as collection points)
+    const collectionPointsByDistrict = {
+      'colombo': [
+        'Colombo General Hospital Collection Point',
+        'National Hospital Collection Center',
+        'Lady Ridgeway Hospital Collection Point',
+        'De Soysa Hospital Collection Center',
+        'Castle Street Hospital Collection Point'
+      ],
+      'gampaha': [
+        'Gampaha General Hospital Collection Point',
+        'Ragama Teaching Hospital Collection Center',
+        'Negombo General Hospital Collection Point',
+        'Minuwangoda Base Hospital Collection Point'
+      ],
+      'kalutara': [
+        'Kalutara General Hospital Collection Point',
+        'Panadura Base Hospital Collection Point',
+        'Horana Base Hospital Collection Point'
+      ],
+      'kandy': [
+        'Kandy General Hospital Collection Point',
+        'Peradeniya Teaching Hospital Collection Center',
+        'Gampola Base Hospital Collection Point'
+      ],
+      'matale': [
+        'Matale General Hospital Collection Point',
+        'Dambulla Base Hospital Collection Point'
+      ],
+      'nuwara-eliya': [
+        'Nuwara Eliya General Hospital Collection Point',
+        'Dickoya Base Hospital Collection Point'
+      ],
+      'galle': [
+        'Galle General Hospital Collection Point',
+        'Mahamodara Teaching Hospital Collection Center',
+        'Elpitiya Base Hospital Collection Point'
+      ],
+      'matara': [
+        'Matara General Hospital Collection Point',
+        'Hambantota General Hospital Collection Point'
+      ],
+      'hambantota': [
+        'Hambantota General Hospital Collection Point',
+        'Tangalle Base Hospital Collection Point'
+      ],
+      'jaffna': [
+        'Jaffna Teaching Hospital Collection Point',
+        'Point Pedro Base Hospital Collection Point'
+      ],
+      'kilinochchi': [
+        'Kilinochchi General Hospital Collection Point'
+      ],
+      'mannar': [
+        'Mannar General Hospital Collection Point'
+      ],
+      'vavuniya': [
+        'Vavuniya General Hospital Collection Point'
+      ],
+      'mullaitivu': [
+        'Mullaitivu General Hospital Collection Point'
+      ],
+      'batticaloa': [
+        'Batticaloa Teaching Hospital Collection Point',
+        'Kattankudy Base Hospital Collection Point'
+      ],
+      'ampara': [
+        'Ampara General Hospital Collection Point',
+        'Kalmunai Base Hospital Collection Point'
+      ],
+      'trincomalee': [
+        'Trincomalee General Hospital Collection Point'
+      ],
+      'kurunegala': [
+        'Kurunegala General Hospital Collection Point',
+        'Kuliyapitiya Base Hospital Collection Point'
+      ],
+      'puttalam': [
+        'Puttalam General Hospital Collection Point',
+        'Chilaw Base Hospital Collection Point'
+      ],
+      'anuradhapura': [
+        'Anuradhapura Teaching Hospital Collection Point',
+        'Medawachchiya Base Hospital Collection Point'
+      ],
+      'polonnaruwa': [
+        'Polonnaruwa General Hospital Collection Point'
+      ],
+      'badulla': [
+        'Badulla General Hospital Collection Point',
+        'Bandarawela Base Hospital Collection Point'
+      ],
+      'monaragala': [
+        'Monaragala General Hospital Collection Point'
+      ],
+      'ratnapura': [
+        'Ratnapura General Hospital Collection Point',
+        'Embilipitiya Base Hospital Collection Point'
+      ],
+      'kegalle': [
+        'Kegalle General Hospital Collection Point',
+        'Warakapola Base Hospital Collection Point'
+      ]
+    };
+
+    // Collection time slots (10 AM to 3 PM, 1-hour intervals for kit collection)
+    const collectionTimeSlots = [
+      '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM'
+    ];
+
+    // Set minimum date to today
+    document.addEventListener('DOMContentLoaded', function() {
+      const dateInput = document.getElementById('collection-date');
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.setAttribute('min', today);
+
+      // District change handler
+      document.getElementById('district').addEventListener('change', function() {
+        const district = this.value;
+        const collectionPointSelect = document.getElementById('collection-point');
+        const collectionTimeSelect = document.getElementById('collection-time');
+
+        // Clear previous selections
+        collectionPointSelect.innerHTML = '<option value="">Select collection point</option>';
+        collectionTimeSelect.innerHTML = '<option value="">First select date and collection point</option>';
+        collectionTimeSelect.disabled = true;
+
+        if (district) {
+          // Populate collection points
+          const collectionPoints = collectionPointsByDistrict[district] || [];
+          collectionPoints.forEach(point => {
+            const option = document.createElement('option');
+            option.value = point.toLowerCase().replace(/\s+/g, '-');
+            option.textContent = point;
+            collectionPointSelect.appendChild(option);
+          });
+          collectionPointSelect.disabled = false;
+        } else {
+          collectionPointSelect.disabled = true;
+        }
+      });
+
+      // Collection point change handler
+      document.getElementById('collection-point').addEventListener('change', function() {
+        const collectionPoint = this.value;
+        const dateInput = document.getElementById('collection-date');
+        const collectionTimeSelect = document.getElementById('collection-time');
+
+        collectionTimeSelect.innerHTML = '<option value="">First select date</option>';
+        collectionTimeSelect.disabled = true;
+
+        if (collectionPoint && dateInput.value) {
+          // Populate collection time slots
+          collectionTimeSlots.forEach(slot => {
+            const option = document.createElement('option');
+            option.value = slot;
+            option.textContent = slot;
+            collectionTimeSelect.appendChild(option);
+          });
+          collectionTimeSelect.disabled = false;
+        }
+      });
+
+      // Date change handler
+      document.getElementById('collection-date').addEventListener('change', function() {
+        const date = this.value;
+        const collectionPointSelect = document.getElementById('collection-point');
+        const collectionTimeSelect = document.getElementById('collection-time');
+
+        collectionTimeSelect.innerHTML = '<option value="">First select collection point</option>';
+        collectionTimeSelect.disabled = true;
+
+        if (date && collectionPointSelect.value) {
+          // Populate collection time slots
+          collectionTimeSlots.forEach(slot => {
+            const option = document.createElement('option');
+            option.value = slot;
+            option.textContent = slot;
+            collectionTimeSelect.appendChild(option);
+          });
+          collectionTimeSelect.disabled = false;
+        }
+      });
+
+
+    });
+
+
+  </script>
+</body>
+</html>

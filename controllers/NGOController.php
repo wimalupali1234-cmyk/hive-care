@@ -66,7 +66,12 @@ class NGOController {
             $data = [
                 'name' => $_POST['name'],
                 'email' => $_POST['email'],
+<<<<<<< HEAD
                 'contact' => $_POST['contact'],
+=======
+                'address' => $_POST['address'],
+                'contact_number' => $_POST['contact'],
+>>>>>>> origin/main
                 'status' => $_POST['status']
             ];
 
@@ -78,7 +83,11 @@ class NGOController {
             }
         }
 
+<<<<<<< HEAD
         include '../views/system_admin/editNGOView.php';
+=======
+        include __DIR__ . '/../views/system_admin/editNGOView.php';
+>>>>>>> origin/main
     }
 }
 ?>

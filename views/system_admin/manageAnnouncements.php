@@ -81,7 +81,12 @@
               <div class="announcement-meta"><i class="fas fa-calendar"></i> <?= htmlspecialchars($row['event_date']) ?></div>
             </div>
             <div class="card-actions">
+<<<<<<< HEAD
               <a href="?delete=<?= (int)$row['id'] ?>" class="btn-delete" onclick="return confirm('Delete this announcement?')"><i class="fas fa-trash"></i> Delete</a>
+=======
+              <a href="index.php?action=editAnnouncement&id=<?= (int)$row['id'] ?>" class="btn-edit" style="background:#28a745; color:#fff; padding:6px 10px; border-radius:6px; text-decoration:none;"><i class="fas fa-edit"></i> Edit</a>
+              <a href="index.php?action=manageAnnouncements&delete=<?= (int)$row['id'] ?>" class="btn-delete" onclick="return confirm('Delete this announcement?')"><i class="fas fa-trash"></i> Delete</a>
+>>>>>>> origin/main
             </div>
           </div>
         <?php endforeach; ?>

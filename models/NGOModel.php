@@ -73,14 +73,15 @@ class NGOModel {
     public function update($id, $data){
         $stmt = $this->conn->prepare("
             UPDATE ngos
-            SET name=?, email=?, contact_number=?, status=?
+            SET name=?, email=?, address=?, contact_number=?, status=?
             WHERE id=?
         ");
         $stmt->bind_param(
-            "ssssi",
+            "sssssi",
             $data['name'],
             $data['email'],
-            $data['contact'],
+            $data['address'],
+            $data['contact_number'],
             $data['status'],
             $id
         );

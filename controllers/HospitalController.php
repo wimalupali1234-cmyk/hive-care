@@ -68,6 +68,7 @@ class HospitalController {
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
+<<<<<<< HEAD
             $updatedData = [
                 'name' => $_POST['name'],
                 'address' => $_POST['address'],
@@ -77,6 +78,9 @@ class HospitalController {
             ];
 
             if ($this->model->update($id, $updatedData)) {
+=======
+            if ($this->model->update($id, $_POST['name'], $_POST['address'], $_POST['contact'], $_POST['email'], $_POST['status'])) {
+>>>>>>> origin/main
                 header("Location: index.php?action=manageHospitals&updated=true");
                 exit;
             } else {
@@ -84,7 +88,11 @@ class HospitalController {
             }
         }
 
+<<<<<<< HEAD
         include '../views/system_admin/editHospitalView.php';
+=======
+include __DIR__ . '/../views/system_admin/editHospitalView.php';
+>>>>>>> origin/main
     }
 }
 ?>

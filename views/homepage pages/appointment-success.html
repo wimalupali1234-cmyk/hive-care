@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Booked Successfully - HIVeCare</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-heartbeat"></i> HIVeCare</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button class="auth-btn login-btn">Login</button>
+        <button class="auth-btn register-btn">Register</button>
+      </div>
+      <div class="language-switcher">
+        <select id="language-select" onchange="changeLanguage(this.value)">
+          <option value="en" selected>English</option>
+          <option value="si">සිංහල (Sinhala)</option>
+        </select>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Success Section -->
+  <section class="appointment-success-section">
+    <div class="container">
+      <div class="success-content">
+        <div class="success-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+
+        <h1>🎉 Appointment Booked Successfully!</h1>
+
+        <div class="success-message">
+          <p>Your appointment has been scheduled and confirmed. You will receive a confirmation message shortly with your appointment reference number.</p>
+        </div>
+
+        <div class="appointment-confirmation-card">
+          <h2>Appointment Details</h2>
+          <div class="confirmation-details">
+            <div class="detail-item">
+              <span class="detail-icon"><i class="fas fa-id-card"></i></span>
+              <div class="detail-content">
+                <span class="detail-label">Profile ID</span>
+                <span class="detail-value" id="confirm-profile-id">Loading...</span>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <span class="detail-icon"><i class="fas fa-vial"></i></span>
+              <div class="detail-content">
+                <span class="detail-label">Test Type</span>
+                <span class="detail-value" id="confirm-test-type">Loading...</span>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <span class="detail-icon"><i class="fas fa-map-marker-alt"></i></span>
+              <div class="detail-content">
+                <span class="detail-label">Hospital</span>
+                <span class="detail-value" id="confirm-hospital">Loading...</span>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <span class="detail-icon"><i class="fas fa-calendar-alt"></i></span>
+              <div class="detail-content">
+                <span class="detail-label">Date & Time</span>
+                <span class="detail-value" id="confirm-date-time">Loading...</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="appointment-reference">
+            <h3><i class="fas fa-ticket-alt"></i> Appointment Reference</h3>
+            <div class="reference-number" id="reference-number">
+              <i class="fas fa-spinner fa-spin"></i> Generating reference number...
+            </div>
+          </div>
+
+          <div class="important-notices">
+            <div class="notice-item">
+              <i class="fas fa-info-circle"></i>
+              <div>
+                <strong>Please arrive 15 minutes early</strong> for your appointment.
+              </div>
+            </div>
+            <div class="notice-item">
+              <i class="fas fa-mobile-alt"></i>
+              <div>
+                <strong>Bring a valid ID</strong> and your profile ID for verification.
+              </div>
+            </div>
+            <div class="notice-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <strong>Contact us</strong> at 1-800-HIV-HELP if you need to reschedule.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="success-actions">
+          <button class="btn btn-primary" onclick="bookAnotherAppointment()">
+            <i class="fas fa-plus"></i>
+            Book Another Appointment
+          </button>
+          <button class="btn btn-secondary" onclick="goToDashboard()">
+            <i class="fas fa-tachometer-alt"></i>
+            Go to Dashboard
+          </button>
+          <button class="btn btn-outline" onclick="goToHome()">
+            <i class="fas fa-home"></i>
+            Go to Home
+          </button>
+        </div>
+
+        <div class="success-footer">
+          <p>Thank you for choosing HIVeCare. We're committed to providing you with confidential, compassionate care.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-heartbeat"></i> HIV Support Portal</h3>
+          <p>Providing confidential support and resources for people affected by HIV. Your privacy and well-being are our top priorities.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="testing.html">Testing Centers</a></li>
+            <li><a href="#">Support Groups</a></li>
+            <li><a href="#">Educational Materials</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> 1-800-HIV-HELP</li>
+            <li><i class="fas fa-envelope"></i> support@hivportal.org</li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Health St, City</li>
+            <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 HIV Support Portal. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Get appointment details from URL parameters
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const profileId = urlParams.get('profile_id');
+      const testType = urlParams.get('test_type');
+      const hospital = urlParams.get('hospital');
+      const date = urlParams.get('date');
+      const time = urlParams.get('time');
+
+      // Populate appointment details
+      if (profileId) {
+        document.getElementById('confirm-profile-id').textContent = profileId;
+      }
+      if (testType) {
+        document.getElementById('confirm-test-type').textContent = formatTestType(testType);
+      }
+      if (hospital) {
+        document.getElementById('confirm-hospital').textContent = formatHospitalName(hospital);
+      }
+      if (date && time) {
+        document.getElementById('confirm-date-time').textContent = formatDateTime(date, time);
+      }
+
+      // Generate a reference number
+      generateReferenceNumber();
+    });
+
+    function formatTestType(testType) {
+      switch(testType) {
+        case 'viral-load': return 'Viral Load Testing';
+        case 'sti-testing': return 'STI Testing';
+        case 'hep-c': return 'Hepatitis C Testing';
+        case 'hep-b': return 'Hepatitis B Testing';
+        default: return testType || 'N/A';
+      }
+    }
+
+    function formatHospitalName(hospitalValue) {
+      return hospitalValue.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'N/A';
+    }
+
+    function formatDateTime(date, timeSlot) {
+      if (!date || !timeSlot) return 'N/A';
+
+      const dateObj = new Date(date);
+      const formattedDate = dateObj.toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      return `${formattedDate} at ${timeSlot}`;
+    }
+
+    function generateReferenceNumber() {
+      // Generate a simple reference number based on current timestamp
+      const timestamp = Date.now();
+      const reference = 'APT' + timestamp.toString().slice(-8);
+      document.getElementById('reference-number').innerHTML = `
+        <strong>${reference}</strong>
+        <small>Keep this number for your records</small>
+      `;
+    }
+
+    function bookAnotherAppointment() {
+      window.location.href = 'appointment-booking.html';
+    }
+
+    function goToDashboard() {
+      window.location.href = 'dashboard.html';
+    }
+
+    function goToHome() {
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

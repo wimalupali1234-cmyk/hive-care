@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review Your Details - HIVeCare</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-heartbeat"></i> HIVeCare</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button class="auth-btn login-btn">Login</button>
+        <button class="auth-btn register-btn">Register</button>
+      </div>
+      <div class="language-switcher">
+        <select id="language-select">
+          <option value="en" selected>English</option>
+          <option value="si">සිංහල (Sinhala)</option>
+        </select>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="form-page">
+    <div class="container" id="review-mount">
+      <div class="form-card spacious">
+        <h1>Confirm your information</h1>
+        <p class="notice-text">Please check whether these are the info you want to enter.</p>
+
+        <!-- Profile ID Section -->
+        <div class="profile-id-section">
+          <h2>Your Profile ID</h2>
+          <div class="profile-id-display" id="profile-id-display">
+            <span id="generated-profile-id">Generating...</span>
+          </div>
+          <div class="profile-id-warning">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>IMPORTANT:</strong> Please copy your Profile ID and keep it in a safe place. You will need this ID to access your account and view test results.
+          </div>
+        </div>
+
+        <div class="info-rows" id="review-rows"></div>
+
+        <div class="form-actions" style="margin-top: 50px; padding-top: 30px; border-top: 2px solid rgba(0,0,0,0.1);">
+          <button id="review-back" class="btn btn-secondary" type="button">Back</button>
+          <button id="review-next" class="btn btn-secondary" type="button">Next</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-heartbeat"></i> HIV Support Portal</h3>
+          <p>Providing confidential support and resources for people affected by HIV. Your privacy and well-being are our top priorities.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="testing.html">Testing Centers</a></li>
+            <li><a href="#">Support Groups</a></li>
+            <li><a href="#">Educational Materials</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> 1-800-HIV-HELP</li>
+            <li><i class="fas fa-envelope"></i> support@hivportal.org</li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Health St, City</li>
+            <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 HIV Support Portal. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // Generate Profile ID and populate review data
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get registration data from localStorage
+      const registrationData = JSON.parse(localStorage.getItem('registrationData') || '{}');
+
+      if (!registrationData.firstInitial || !registrationData.lastInitial || !registrationData.district) {
+        alert('Registration data not found. Please start registration again.');
+        window.location.href = 'register.html';
+        return;
+      }
+
+      // Generate current date and time
+      const now = new Date();
+      const dateStr = now.getFullYear().toString() +
+                     (now.getMonth() + 1).toString().padStart(2, '0') +
+                     now.getDate().toString().padStart(2, '0');
+
+      const timeStr = now.getHours().toString().padStart(2, '0') +
+                     now.getMinutes().toString().padStart(2, '0') +
+                     now.getSeconds().toString().padStart(2, '0');
+
+      // Use backend-generated Profile ID (should be available from registration data)
+      const profileId = registrationData.profile_id;
+
+      if (!profileId) {
+        alert('Profile ID not found. Please start registration again.');
+        window.location.href = 'register.html';
+        return;
+      }
+
+      // Display Profile ID
+      document.getElementById('generated-profile-id').textContent = profileId;
+
+      // Store complete registration data with Profile ID and timestamp
+      const completeRegistrationData = {
+        ...registrationData,
+        profileId: profileId,
+        createdDate: now.toISOString(),
+        createdDateFormatted: now.toLocaleString(),
+        dateStr: dateStr,
+        timeStr: timeStr
+      };
+
+      localStorage.setItem('completeRegistrationData', JSON.stringify(completeRegistrationData));
+
+      // Populate review information
+      const reviewRows = document.getElementById('review-rows');
+      reviewRows.innerHTML = `
+        <div class="info-row">
+          <div class="label">Role:</div>
+          <div class="value">${registrationData.role.charAt(0).toUpperCase() + registrationData.role.slice(1).replace('-', ' ')}</div>
+        </div>
+        <div class="info-row">
+          <div class="label">First Initial:</div>
+          <div class="value">${registrationData.firstInitial.toUpperCase()}</div>
+        </div>
+        <div class="info-row">
+          <div class="label">Last Initial:</div>
+          <div class="value">${registrationData.lastInitial.toUpperCase()}</div>
+        </div>
+        <div class="info-row">
+          <div class="label">Primary Phone:</div>
+          <div class="value">${registrationData.phone1}</div>
+        </div>
+        ${registrationData.phone2 ? `
+        <div class="info-row">
+          <div class="label">Secondary Phone:</div>
+          <div class="value">${registrationData.phone2}</div>
+        </div>
+        ` : ''}
+        <div class="info-row">
+          <div class="label">District:</div>
+          <div class="value">${registrationData.district}</div>
+        </div>
+        <div class="info-row">
+          <div class="label">Account Created:</div>
+          <div class="value">${now.toLocaleString()}</div>
+        </div>
+        <div class="info-row">
+          <div class="label">Profile ID:</div>
+          <div class="value" style="font-family: monospace; font-weight: bold; color: var(--primary-color);">${profileId}</div>
+        </div>
+      `;
+
+      // Handle navigation buttons
+      document.getElementById('review-back').addEventListener('click', function() {
+        window.location.href = 'register.html';
+      });
+
+      document.getElementById('review-next').addEventListener('click', function() {
+        window.location.href = 'register-terms.html';
+      });
+    });
+  </script>
+</body>
+</html>

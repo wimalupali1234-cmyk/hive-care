@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms and Conditions - HIVeCare</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-heartbeat"></i> HIVeCare</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button class="auth-btn login-btn">Login</button>
+        <button class="auth-btn register-btn">Register</button>
+      </div>
+      <div class="language-switcher">
+        <select id="language-select" onchange="changeLanguage(this.value)">
+          <option value="en" selected>English</option>
+          <option value="si">සිංහල (Sinhala)</option>
+        </select>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="form-page" style="padding: 80px 0; min-height: calc(100vh - 160px);">
+    <div class="container" id="terms-mount">
+      <div class="form-card terms-card">
+        <div class="terms-header">
+          <h1><i class="fas fa-file-contract"></i> Terms and Conditions</h1>
+          <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 40px;">
+            Please read and accept our terms and conditions to continue with your registration.
+          </p>
+        </div>
+
+        <div class="terms-content">
+          <div class="terms-section">
+            <h3><i class="fas fa-question-circle"></i> Why We Ask Questions</h3>
+            <p>Throughout your use of HIVeCare, you will be asked some questions to help us understand your risk for HIV and other sexually transmitted diseases (STDs). This will allow us to provide you with personalized support and accurate information.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3><i class="fas fa-phone"></i> Phone Number Usage</h3>
+            <p>Your phone number helps us stay in touch with you for any support or information related to HIV services you may need. It is also important for securely accessing your test results.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3><i class="fas fa-calendar-check"></i> After Reservation</h3>
+            <p>Once you finish your reservation, you will receive a unique code on the phone number you provided. Please keep this code safe—it will be needed to view your test results and to make future bookings.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3><i class="fas fa-key"></i> Lost Code Recovery</h3>
+            <p>No worries! You can easily generate a new code if you misplace the original one.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3><i class="fas fa-map-marker-alt"></i> Location Permissions</h3>
+            <p>Your phone or computer may ask for permission to access your geographic location. This helps us recommend clinics nearest to you for your convenience.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3><i class="fas fa-shield-alt"></i> Privacy and Data Use</h3>
+            <p>The information you provide, including your location and risk-related answers, is used only to improve your experience with the app — like guiding clinic recommendations and understanding how many people use the service. Your privacy is very important to us. All data is kept confidential and anonymous, and it will never be used to identify you personally.</p>
+          </div>
+        </div>
+
+        <div class="terms-actions">
+          <div class="terms-options">
+            <label class="terms-option">
+              <input type="radio" name="consent" id="agree" />
+              <span class="option-text">I agree to the terms and conditions</span>
+            </label>
+            <label class="terms-option">
+              <input type="radio" name="consent" id="disagree" />
+              <span class="option-text">I do not agree</span>
+            </label>
+          </div>
+          <button id="terms-proceed" class="btn btn-secondary" type="button" disabled>Proceed</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-heartbeat"></i> HIV Support Portal</h3>
+          <p>Providing confidential support and resources for people affected by HIV. Your privacy and well-being are our top priorities.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="testing.html">Testing Centers</a></li>
+            <li><a href="#">Support Groups</a></li>
+            <li><a href="#">Educational Materials</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> 1-800-HIV-HELP</li>
+            <li><i class="fas fa-envelope"></i> support@hivportal.org</li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Health St, City</li>
+            <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 HIV Support Portal. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // Terms and conditions functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const agreeRadio = document.getElementById('agree');
+      const disagreeRadio = document.getElementById('disagree');
+      const proceedBtn = document.getElementById('terms-proceed');
+
+      // Function to update button state
+      function updateButtonState() {
+        if (agreeRadio.checked) {
+          proceedBtn.disabled = false;
+          proceedBtn.style.background = 'linear-gradient(135deg, var(--primary-color), #0b3a82)';
+          proceedBtn.style.cursor = 'pointer';
+          proceedBtn.style.transform = 'translateY(0)';
+        } else if (disagreeRadio.checked) {
+          proceedBtn.disabled = true;
+          proceedBtn.style.background = '#6c757d';
+          proceedBtn.style.cursor = 'not-allowed';
+          proceedBtn.style.transform = 'translateY(0)';
+        } else {
+          proceedBtn.disabled = true;
+          proceedBtn.style.background = '#6c757d';
+          proceedBtn.style.cursor = 'not-allowed';
+        }
+      }
+
+      // Add event listeners
+      agreeRadio.addEventListener('change', updateButtonState);
+      disagreeRadio.addEventListener('change', updateButtonState);
+
+      // Handle proceed button click
+      proceedBtn.addEventListener('click', function() {
+        if (agreeRadio.checked) {
+          // Get complete registration data
+          const completeData = JSON.parse(localStorage.getItem('completeRegistrationData') || '{}');
+
+          // Here you would typically send the data to your backend
+          console.log('Registration completed:', completeData);
+
+          // Redirect to dashboard or success page
+          window.location.href = 'dashboard.html';
+        }
+      });
+
+      // Add visual feedback for radio button options
+      const termsOptions = document.querySelectorAll('.terms-option');
+      termsOptions.forEach(option => {
+        option.addEventListener('mouseenter', function() {
+          if (!this.querySelector('input[type="radio"]:checked')) {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 5px 15px rgba(3, 30, 70, 0.1)';
+          }
+        });
+
+        option.addEventListener('mouseleave', function() {
+          if (!this.querySelector('input[type="radio"]:checked')) {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

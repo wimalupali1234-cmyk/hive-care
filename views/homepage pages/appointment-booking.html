@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment - HIVeCare</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-heartbeat"></i> HIVeCare</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button class="auth-btn login-btn">Login</button>
+        <button class="auth-btn register-btn">Register</button>
+      </div>
+      <div class="language-switcher">
+        <select id="language-select" onchange="changeLanguage(this.value)">
+          <option value="en" selected>English</option>
+          <option value="si">සිංහල (Sinhala)</option>
+        </select>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Appointment Booking Section -->
+  <section class="appointment-booking-section">
+    <div class="container">
+      <div class="booking-header">
+        <h1>Book Facility-Based Testing Appointment</h1>
+        <p>Please fill in all the required information to schedule your appointment</p>
+      </div>
+
+      <form class="appointment-form" id="appointmentForm">
+        <!-- Test Type Selection -->
+        <div class="form-section">
+          <h2><i class="fas fa-vial"></i> Select Test Type</h2>
+          <div class="test-type-grid">
+            <div class="test-type-card">
+              <input type="radio" id="viral-load" name="test-type" value="viral-load" required>
+              <label for="viral-load">
+                <div class="test-icon">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Viral Load Testing</h3>
+                <p>Measures the amount of HIV virus in your blood</p>
+              </label>
+            </div>
+
+            <div class="test-type-card">
+              <input type="radio" id="sti-testing" name="test-type" value="sti-testing" required>
+              <label for="sti-testing">
+                <div class="test-icon">
+                  <i class="fas fa-bacteria"></i>
+                </div>
+                <h3>STI Testing</h3>
+                <p>Sexually Transmitted Infection screening</p>
+              </label>
+            </div>
+
+            <div class="test-type-card">
+              <input type="radio" id="hep-c" name="test-type" value="hep-c" required>
+              <label for="hep-c">
+                <div class="test-icon">
+                  <i class="fas fa-virus"></i>
+                </div>
+                <h3>Hepatitis C Testing</h3>
+                <p>Screening for Hepatitis C virus</p>
+              </label>
+            </div>
+
+            <div class="test-type-card">
+              <input type="radio" id="hep-b" name="test-type" value="hep-b" required>
+              <label for="hep-b">
+                <div class="test-icon">
+                  <i class="fas fa-shield-virus"></i>
+                </div>
+                <h3>Hepatitis B Testing</h3>
+                <p>Screening for Hepatitis B virus</p>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Account Information -->
+        <div class="form-section">
+          <h2><i class="fas fa-user-circle"></i> Account Information</h2>
+          <div class="form-group">
+            <label for="account-number">Profile ID *</label>
+            <input type="text" id="account-number" name="account-number" required placeholder="Enter your profile ID">
+          </div>
+        </div>
+
+        <!-- Location Selection -->
+        <div class="form-section">
+          <h2><i class="fas fa-map-marker-alt"></i> Location</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="district">Select District *</label>
+              <select id="district" name="district" required>
+                <option value="">Choose your district</option>
+                <option value="colombo">Colombo</option>
+                <option value="gampaha">Gampaha</option>
+                <option value="kalutara">Kalutara</option>
+                <option value="kandy">Kandy</option>
+                <option value="matale">Matale</option>
+                <option value="nuwara-eliya">Nuwara Eliya</option>
+                <option value="galle">Galle</option>
+                <option value="matara">Matara</option>
+                <option value="hambantota">Hambantota</option>
+                <option value="jaffna">Jaffna</option>
+                <option value="kilinochchi">Kilinochchi</option>
+                <option value="mannar">Mannar</option>
+                <option value="vavuniya">Vavuniya</option>
+                <option value="mullaitivu">Mullaitivu</option>
+                <option value="batticaloa">Batticaloa</option>
+                <option value="ampara">Ampara</option>
+                <option value="trincomalee">Trincomalee</option>
+                <option value="kurunegala">Kurunegala</option>
+                <option value="puttalam">Puttalam</option>
+                <option value="anuradhapura">Anuradhapura</option>
+                <option value="polonnaruwa">Polonnaruwa</option>
+                <option value="badulla">Badulla</option>
+                <option value="monaragala">Monaragala</option>
+                <option value="ratnapura">Ratnapura</option>
+                <option value="kegalle">Kegalle</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="hospital">Select Hospital *</label>
+              <select id="hospital" name="hospital" required disabled>
+                <option value="">First select a district</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Date and Time Selection -->
+        <div class="form-section">
+          <h2><i class="fas fa-calendar-alt"></i> Date & Time</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="appointment-date">Select Date *</label>
+              <input type="date" id="appointment-date" name="appointment-date" required min="">
+            </div>
+
+            <div class="form-group">
+              <label for="time-slot">Available Time Slots *</label>
+              <select id="time-slot" name="time-slot" required disabled>
+                <option value="">First select date and hospital</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-section">
+          <button type="submit" class="btn btn-primary schedule-btn">
+            <i class="fas fa-calendar-check"></i>
+            Schedule Appointment
+          </button>
+        </div>
+      </form>
+    </div>
+
+
+  <!-- Success Popup -->
+  <div id="success-popup" class="popup-overlay" style="display: none;">
+    <div class="popup-content">
+      <div class="popup-icon success">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h2>🎉 Appointment Booked Successfully!</h2>
+      <div class="appointment-details">
+        <p class="success-message">Your appointment has been scheduled and confirmed!</p>
+        <div class="appointment-summary">
+          <h3>Appointment Details:</h3>
+          <div class="detail-item">
+            <span class="detail-label">Profile ID:</span>
+            <span class="detail-value" id="popup-profile-id">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Test Type:</span>
+            <span class="detail-value" id="popup-test-type">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Hospital:</span>
+            <span class="detail-value" id="popup-hospital">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Date & Time:</span>
+            <span class="detail-value" id="popup-date-time">-</span>
+          </div>
+        </div>
+        <p class="confirmation-note">You will receive a confirmation message shortly with your appointment reference number.</p>
+      </div>
+      <div class="popup-actions">
+        <button class="btn btn-primary" onclick="bookAnotherAppointment()">Book Another Appointment</button>
+        <button class="btn btn-secondary" onclick="goToDashboard()">Go to Dashboard</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-heartbeat"></i> HIV Support Portal</h3>
+          <p>Providing confidential support and resources for people affected by HIV. Your privacy and well-being are our top priorities.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="testing.html">Testing Centers</a></li>
+            <li><a href="#">Support Groups</a></li>
+            <li><a href="#">Educational Materials</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> 1-800-HIV-HELP</li>
+            <li><i class="fas fa-envelope"></i> support@hivportal.org</li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Health St, City</li>
+            <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 HIV Support Portal. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Hospital data by district
+    const hospitalsByDistrict = {
+      'colombo': [
+        'Colombo General Hospital',
+        'National Hospital of Sri Lanka',
+        'Lady Ridgeway Hospital',
+        'De Soysa Hospital for Women',
+        'Castle Street Hospital for Women'
+      ],
+      'gampaha': [
+        'Gampaha General Hospital',
+        'Ragama Teaching Hospital',
+        'Negombo General Hospital',
+        'Minuwangoda Base Hospital'
+      ],
+      'kalutara': [
+        'Kalutara General Hospital',
+        'Panadura Base Hospital',
+        'Horana Base Hospital'
+      ],
+      'kandy': [
+        'Kandy General Hospital',
+        'Peradeniya Teaching Hospital',
+        'Gampola Base Hospital'
+      ],
+      'matale': [
+        'Matale General Hospital',
+        'Dambulla Base Hospital'
+      ],
+      'nuwara-eliya': [
+        'Nuwara Eliya General Hospital',
+        'Dickoya Base Hospital'
+      ],
+      'galle': [
+        'Galle General Hospital',
+        'Mahamodara Teaching Hospital',
+        'Elpitiya Base Hospital'
+      ],
+      'matara': [
+        'Matara General Hospital',
+        'Hambantota General Hospital'
+      ],
+      'hambantota': [
+        'Hambantota General Hospital',
+        'Tangalle Base Hospital'
+      ],
+      'jaffna': [
+        'Jaffna Teaching Hospital',
+        'Point Pedro Base Hospital'
+      ],
+      'kilinochchi': [
+        'Kilinochchi General Hospital'
+      ],
+      'mannar': [
+        'Mannar General Hospital'
+      ],
+      'vavuniya': [
+        'Vavuniya General Hospital'
+      ],
+      'mullaitivu': [
+        'Mullaitivu General Hospital'
+      ],
+      'batticaloa': [
+        'Batticaloa Teaching Hospital',
+        'Kattankudy Base Hospital'
+      ],
+      'ampara': [
+        'Ampara General Hospital',
+        'Kalmunai Base Hospital'
+      ],
+      'trincomalee': [
+        'Trincomalee General Hospital'
+      ],
+      'kurunegala': [
+        'Kurunegala General Hospital',
+        'Kuliyapitiya Base Hospital'
+      ],
+      'puttalam': [
+        'Puttalam General Hospital',
+        'Chilaw Base Hospital'
+      ],
+      'anuradhapura': [
+        'Anuradhapura Teaching Hospital',
+        'Medawachchiya Base Hospital'
+      ],
+      'polonnaruwa': [
+        'Polonnaruwa General Hospital'
+      ],
+      'badulla': [
+        'Badulla General Hospital',
+        'Bandarawela Base Hospital'
+      ],
+      'monaragala': [
+        'Monaragala General Hospital'
+      ],
+      'ratnapura': [
+        'Ratnapura General Hospital',
+        'Embilipitiya Base Hospital'
+      ],
+      'kegalle': [
+        'Kegalle General Hospital',
+        'Warakapola Base Hospital'
+      ]
+    };
+
+    // Time slots (9 AM to 4 PM, 30-minute intervals)
+    const timeSlots = [
+      '09:00 AM', '09:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM',
+      '12:00 PM', '12:30 PM', '01:00 PM', '01:30 PM', '02:00 PM', '02:30 PM',
+      '03:00 PM', '03:30 PM', '04:00 PM'
+    ];
+
+    // Set minimum date to today
+    document.addEventListener('DOMContentLoaded', function() {
+      const dateInput = document.getElementById('appointment-date');
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.setAttribute('min', today);
+
+      // District change handler
+      document.getElementById('district').addEventListener('change', function() {
+        const district = this.value;
+        const hospitalSelect = document.getElementById('hospital');
+        const timeSlotSelect = document.getElementById('time-slot');
+
+        // Clear previous selections
+        hospitalSelect.innerHTML = '<option value="">Select hospital</option>';
+        timeSlotSelect.innerHTML = '<option value="">First select date and hospital</option>';
+        timeSlotSelect.disabled = true;
+
+        if (district) {
+          // Populate hospitals
+          const hospitals = hospitalsByDistrict[district] || [];
+          hospitals.forEach(hospital => {
+            const option = document.createElement('option');
+            option.value = hospital.toLowerCase().replace(/\s+/g, '-');
+            option.textContent = hospital;
+            hospitalSelect.appendChild(option);
+          });
+          hospitalSelect.disabled = false;
+        } else {
+          hospitalSelect.disabled = true;
+        }
+      });
+
+      // Hospital change handler
+      document.getElementById('hospital').addEventListener('change', function() {
+        const hospital = this.value;
+        const dateInput = document.getElementById('appointment-date');
+        const timeSlotSelect = document.getElementById('time-slot');
+
+        timeSlotSelect.innerHTML = '<option value="">First select date</option>';
+        timeSlotSelect.disabled = true;
+
+        if (hospital && dateInput.value) {
+          // Populate time slots
+          timeSlots.forEach(slot => {
+            const option = document.createElement('option');
+            option.value = slot;
+            option.textContent = slot;
+            timeSlotSelect.appendChild(option);
+          });
+          timeSlotSelect.disabled = false;
+        }
+      });
+
+      // Date change handler
+      document.getElementById('appointment-date').addEventListener('change', function() {
+        const date = this.value;
+        const hospitalSelect = document.getElementById('hospital');
+        const timeSlotSelect = document.getElementById('time-slot');
+
+        timeSlotSelect.innerHTML = '<option value="">First select hospital</option>';
+        timeSlotSelect.disabled = true;
+
+        if (date && hospitalSelect.value) {
+          // Populate time slots
+          timeSlots.forEach(slot => {
+            const option = document.createElement('option');
+            option.value = slot;
+            option.textContent = slot;
+            timeSlotSelect.appendChild(option);
+          });
+          timeSlotSelect.disabled = false;
+        }
+      });
+
+      // Form submission - using traditional PHP form handling
+      document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Get form data
+        const testType = document.querySelector('input[name="test-type"]:checked')?.value;
+        const accountNumber = document.getElementById('account-number').value;
+        const district = document.getElementById('district').value;
+        const hospital = document.getElementById('hospital').value;
+        const date = document.getElementById('appointment-date').value;
+        const timeSlot = document.getElementById('time-slot').value;
+
+        // Validate required fields
+        if (!testType || !accountNumber || !district || !hospital || !date || !timeSlot) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+
+        // Create a temporary form to submit
+        const tempForm = document.createElement('form');
+        tempForm.method = 'POST';
+        tempForm.action = 'appointment-handler.php';
+        tempForm.style.display = 'none';
+
+        // Add form fields
+        const fields = [
+          { name: 'test-type', value: testType },
+          { name: 'account-number', value: accountNumber },
+          { name: 'district', value: district },
+          { name: 'hospital', value: hospital },
+          { name: 'appointment-date', value: date },
+          { name: 'time-slot', value: timeSlot }
+        ];
+
+        fields.forEach(field => {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = field.name;
+          input.value = field.value;
+          tempForm.appendChild(input);
+        });
+
+        document.body.appendChild(tempForm);
+        tempForm.submit();
+
+        // Clean up
+        document.body.removeChild(tempForm);
+
+        // For debugging - you can temporarily change this to test-form-submission.php
+        // tempForm.action = 'test-form-submission.php';
+      });
+
+      // Check for URL parameters (success/error messages)
+      document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const success = urlParams.get('success');
+        const error = urlParams.get('error');
+        const message = urlParams.get('message');
+
+        if (success === '1' && message) {
+          // Show success popup with appointment details
+          showSuccessPopup();
+        } else if (error === '1' && message) {
+          // Show error message
+          alert('Error: ' + decodeURIComponent(message));
+        }
+      });
+
+    });
+
+    function showSuccessPopup() {
+      // Get URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const profileId = urlParams.get('profile_id');
+      const testType = urlParams.get('test_type');
+      const hospital = urlParams.get('hospital');
+      const date = urlParams.get('date');
+      const time = urlParams.get('time');
+
+      // Format data for display
+      const testTypeDisplay = formatTestType(testType);
+      const hospitalDisplay = formatHospitalName(hospital);
+      const dateTimeDisplay = formatDateTime(date, time);
+
+      // Populate popup with appointment details
+      document.getElementById('popup-profile-id').textContent = profileId || 'N/A';
+      document.getElementById('popup-test-type').textContent = testTypeDisplay;
+      document.getElementById('popup-hospital').textContent = hospitalDisplay;
+      document.getElementById('popup-date-time').textContent = dateTimeDisplay;
+
+      // Show popup
+      document.getElementById('success-popup').style.display = 'flex';
+    }
+
+    function formatTestType(testType) {
+      switch(testType) {
+        case 'viral-load': return 'Viral Load Testing';
+        case 'sti-testing': return 'STI Testing';
+        case 'hep-c': return 'Hepatitis C Testing';
+        case 'hep-b': return 'Hepatitis B Testing';
+        default: return testType || 'N/A';
+      }
+    }
+
+    function formatHospitalName(hospitalValue) {
+      // Convert hospital value back to display name
+      return hospitalValue.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'N/A';
+    }
+
+    function formatDateTime(date, timeSlot) {
+      if (!date || !timeSlot) return 'N/A';
+
+      const dateObj = new Date(date);
+      const formattedDate = dateObj.toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      return `${formattedDate} at ${timeSlot}`;
+    }
+
+    function bookAnotherAppointment() {
+      // Close popup and redirect to booking page (clears URL parameters)
+      document.getElementById('success-popup').style.display = 'none';
+
+      // Clear the form
+      document.getElementById('appointmentForm').reset();
+
+      // Reset form state
+      document.getElementById('hospital').disabled = true;
+      document.getElementById('time-slot').disabled = true;
+      document.querySelectorAll('.test-type-card input').forEach(input => {
+        input.checked = false;
+      });
+
+      // Clear URL parameters by redirecting to the same page without parameters
+      window.location.href = 'appointment-booking.html';
+    }
+
+    function closePopup() {
+      // Close popup without clearing form (in case user wants to review)
+      document.getElementById('success-popup').style.display = 'none';
+    }
+
+    function goToDashboard() {
+      window.location.href = 'dashboard.html';
+    }
+  </script>
+</body>
+</html>

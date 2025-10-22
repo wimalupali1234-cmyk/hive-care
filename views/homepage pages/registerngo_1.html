@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register-NGO - HIVeCare</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <meta name="description" content="Register to create your HIVeCare profile and access services." />
+  <style>/* keep empty: all styles in styles.css */</style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-heartbeat"></i> HIVeCare</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button class="auth-btn login-btn">Login</button>
+      </div>
+      <div class="language-switcher">
+        <select id="language-select" onchange="changeLanguage(this.value)">
+          <option value="en" selected>English</option>
+          <option value="si">සිංහල (Sinhala)</option>
+        </select>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+        
+  
+    <div class="container">
+      <form id="register-form" class="form-card" novalidate>
+          <h1>Create your NGO account</h1>
+          <div class="form-group">
+            <label for="NGO-name">NGO name <span style="color:#e74c3c">*</span></label>
+            <input id="NGO-name" name="NGO name" type="text" maxlength="30" required placeholder="E.g., UNAIDS" />
+          </div>
+
+          <div class="form-group">
+            <label for="admin-name">Admin name <span style="color:#e74c3c">*</span></label>
+            <input id="admin-name" name="admin-name" type="text" maxlength="30" required placeholder="E.g., Ms.S.Punchihewa" />
+          </div>
+
+          <div class="form-grid">
+          <div class="form-group">
+            <label for="address-number">Address number<span style="color:#e74c3c">*</span></label>
+            <input id="address-number" name="address-number" type="number" maxlength="4" required placeholder="E.g., 96" />
+          </div>
+
+          <div class="form-group">
+            <label for="road-name">Road name <span style="color:#e74c3c">*</span></label>
+            <input id="road-name" name="road-name" type="text" maxlength="30" required placeholder="E.g., Kandy road" />
+          </div>
+          </div>
+
+           <div class="form-group">
+              <label for="nic">NIC Number <span style="color:#e74c3c">*</span></label>
+              <input id="nic" name="nic" type="text" required placeholder="Enter your NIC number" />
+            </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label for="district">District (Sri Lanka) <span style="color:#e74c3c">*</span></label>
+            <select id="district" name="district" required>
+              <option value="">Select your district</option>
+              <option>Colombo</option>
+              <option>Gampaha</option>
+              <option>Kalutara</option>
+              <option>Kandy</option>
+              <option>Matale</option>
+              <option>Nuwara Eliya</option>
+              <option>Galle</option>
+              <option>Matara</option>
+              <option>Hambantota</option>
+              <option>Jaffna</option>
+              <option>Killinochchi</option>
+              <option>Mannar</option>
+              <option>Vavuniya</option>
+              <option>Mullaitivu</option>
+              <option>Batticaloa</option>
+              <option>Ampara</option>
+              <option>Trincomalee</option>
+              <option>Kurunegala</option>
+              <option>Puttalam</option>
+              <option>Anuradhapura</option>
+              <option>Polonnaruwa</option>
+              <option>Badulla</option>
+              <option>Monaragala</option>
+              <option>Ratnapura</option>
+              <option>Kegalle</option>
+            </select>
+          </div>
+        
+         
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="phone1">Primary telephone number <span style="color:#e74c3c">*</span></label>
+            <input id="phone1" name="phone1" type="tel" required placeholder="0xx-xxxxxxx" />
+          </div>
+          <div class="form-group">
+            <label for="phone2">Secondary telephone number</label>
+            <input id="phone2" name="phone2" type="tel" required placeholder="0xx-xxxxxxx" />
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="email1">Email address <span style="color:#e74c3c">*</span></label>
+            <input id="email1" name="email1" type="email" required placeholder="example@email.com" />
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn">Next</button>
+        </div>
+      </form>
+    </div>
+  
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-heartbeat"></i> HIV Support Portal</h3>
+          <p>Providing confidential support and resources for people affected by HIV. Your privacy and well-being are our top priorities.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="testing.html">Testing Centers</a></li>
+            <li><a href="#">Support Groups</a></li>
+            <li><a href="#">Educational Materials</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> 1-800-HIV-HELP</li>
+            <li><i class="fas fa-envelope"></i> support@hivportal.org</li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Health St, City</li>
+            <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 HIV Support Portal. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('personal-details-form');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const NGOname = document.getElementById('NGO name').value.trim();
+        const adminName = document.getElementById('admin-name').value;
+        const addressNumber = document.getElementById('address-number').value;
+        const roadName = document.getElementById('road-name').value.trim();
+        const district = document.getElementById('district').value.trim();
+        const primaryTelephone = document.getElementById('phone1').value.trim();
+        const secondaryTelephone = document.getElementById('phone2').value.trim();
+        const emailAddress = document.getElementById('email1').value.trim();
+        
+
+        if (!NGOname || !adminName || !addressNumber|| !roadName  || !district || !primaryTelephone || !secondaryTelephone || !emailAddress) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+
+        // NIC validation (Sri Lankan NIC format)
+        const nicRegex = /^\d{9}[vVxX]|\d{12}$/;
+        if (!nicRegex.test(nic)) {
+          alert('Please enter a valid NIC number.');
+          return false;
+        }
+
+
+        
+
+        // Store data and proceed to next step
+        const personalData = {
+          NGOname, adminName, addressNumb, nic, roadName, district, primaryTelephone,
+          secondaryTelephone: document.getElementById('phone2').value.trim(),
+          emailAddress
+        };
+
+        localStorage.setItem('NGOadminData', JSON.stringify(personalData));
+        window.location.href = 'registerngo_2.html';
+      });
+    });
+  </script>
+</body>
+</html>
